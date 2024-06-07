@@ -521,18 +521,18 @@ const questions = [
 const results = [
   {
     id: 1,
-    text: "",
+    text: "Výborné skóre, tvá práce v off-season se vyplatila a již nyní při tréninku je vidět, že jsi nezahálel/a. Můžeš si dát ještě jedno tréninkové kolečko nebo vyrazit na turnaj.",
   },
   {
     id: 2,
-    text: "",
+    text: "Některé jamky (témata) možná nesedly, možná občas trochu zafoukalo, ale jinak pěkné skóre. Určitě si ale vychytal/a poslední mouchy a na turnaji už to půjde samo.",
   },
   {
     id: 3,
-    text: "",
+    text: "Určitě jsi pocítil/a, že je v některých oblastech potřeba ještě trochu tréninku. Neboj se oslovit zkušenější hráče na hřišti nebo místní klub, určitě ti rádi pomohou.",
   },
   {
     id: 4,
-    text: "",
+    text: "Žádný učený z nebe nespadl. Věříme, že jsi doposud trénoval jiné stránky hry a že na pravidlech ještě zapracuješ. Pokud nevíš, kudy kam, neboj se oslovit zkušenější hráče nebo místní klub.",
   },
 ];
