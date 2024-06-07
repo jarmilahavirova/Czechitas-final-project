@@ -536,3 +536,36 @@ const results = [
     text: "Žádný učený z nebe nespadl. Věříme, že jsi doposud trénoval jiné stránky hry a že na pravidlech ještě zapracuješ. Pokud nevíš, kudy kam, neboj se oslovit zkušenější hráče nebo místní klub.",
   },
 ];
+
+const links = [
+  {
+    icon: "Disc Golf Basket",
+    link: '<a href="https://www.flaticon.com/free-icons/disc-golf" title="disc golf icons">Disc golf icons created by Freepik - Flaticon</a>',
+    author: "Freepik",
+  },
+  {
+    icon: "Home",
+    link: '<a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by Freepik - Flaticon</a>',
+    author: "Freepik",
+  },
+  {
+    icon: "Windy",
+    link: '<a href="https://www.flaticon.com/free-icons/wind-speed" title="wind speed icons">Wind speed icons created by Nendra Wahyu  - Flaticon</a>',
+    author: "Nendra Wahyu",
+  },
+  {
+    icon: "Info",
+    link: '<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Chanut - Flaticon</a>',
+    author: "Chanut",
+  },
+  {
+    icon: "Person",
+    link: '<a href="https://www.flaticon.com/free-icons/alone" title="alone icons">Alone icons created by AbtoCreative - Flaticon</a>',
+    author: "Abto Creative",
+  },
+  {
+    icon: "People",
+    link: '<a href="https://www.flaticon.com/free-icons/two-players" title="two players icons">Two players icons created by AbtoCreative - Flaticon</a>',
+    author: "Abto Creative",
+  },
+];
