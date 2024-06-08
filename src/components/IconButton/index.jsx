@@ -1,9 +1,8 @@
-
-
-export const IconButton = ({ text, icon, selected }) => {
+export const IconButton = ({ text, icon, selected, onClick }) => {
   return (
     <div>
       <button
+        onClick={onClick}
         className={
           selected ? "icon_button icon_button--selected" : "icon_button"
         }
