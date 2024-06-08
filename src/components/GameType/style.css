@@ -1,0 +1,17 @@
+.players_number {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.players_number_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.players_number_text {
+    min-width:150px;
+    text-align: left;
+}

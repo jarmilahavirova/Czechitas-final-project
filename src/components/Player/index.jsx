@@ -13,8 +13,9 @@ export const Player = ({ playersNumber, disabled }) => {
     <div className={
         disabled ? "player disabled" : "player"
       }>
-      <p>Hráč {playersNumber}</p>
-      <div>
+      <p className="player_text">Hráč {playersNumber}</p>
+      <div className="imgInput">
+        <div className="images">
         <img
           className={avatar === "head1" ? "selected" : ""}
           src={head1}
@@ -39,6 +40,7 @@ export const Player = ({ playersNumber, disabled }) => {
           alt=""
           onClick={() => setAvatar("head4")}
         />
+        </div>
         <input></input>
       </div>
     </div>
