@@ -1,0 +1,8 @@
+.game {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game__middle-section {
+  flex-basis: 75%;
+}
