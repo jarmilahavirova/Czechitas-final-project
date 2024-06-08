@@ -17,7 +17,6 @@ export const AvatarAside = ({ playerName, avatar, side }) => {
     }
   };
 
-  console.log(avatar);
   return (
     <aside className="avatar">
       <h2 className="avatar__title">{playerName}</h2>

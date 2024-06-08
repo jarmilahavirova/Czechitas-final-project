@@ -9,3 +9,7 @@
 .avatar__image {
   height: 50%;
 }
+
+.avatar__image--right {
+  transform: scale(-1, 1);
+}
