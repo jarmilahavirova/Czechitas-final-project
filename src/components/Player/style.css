@@ -1,0 +1,11 @@
+.selected {
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #115b04;
+    border-width: 5px;
+    background-color: #115b0482;
+    }
+
+.disabled {
+    opacity: 40%;
+}
