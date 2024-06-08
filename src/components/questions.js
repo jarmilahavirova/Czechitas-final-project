@@ -1,4 +1,4 @@
-const questions = [
+export const questions = [
   {
     id: 1,
     question: "Je určeno pořadí, v kterém hráči vyhazují z výhoziště?",

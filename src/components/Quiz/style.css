@@ -1,0 +1,29 @@
+.question {
+  display: flex;
+  background-color: white;
+  border-radius: 25px 25px 0 0;
+  width: 900px;
+}
+
+.question__infoside {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  align-items: center;
+}
+
+.question__teesign {
+  height: 200px;
+}
+
+.question__weather {
+  height: 50px;
+  width: 50px;
+}
+
+.question__answer {
+  background-color: #d9d9d9;
+  padding: 15px;
+  border-radius: 20px;
+  margin-right: 25px;
+}

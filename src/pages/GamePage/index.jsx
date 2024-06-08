@@ -12,7 +12,7 @@ export const GamePage = ({
   avatar1 = 2,
   avatar2 = 3,
 }) => {
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(true);
 
   return (
     <main className="game">
