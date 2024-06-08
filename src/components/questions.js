@@ -568,4 +568,9 @@ const links = [
     link: '<a href="https://www.flaticon.com/free-icons/two-players" title="two players icons">Two players icons created by AbtoCreative - Flaticon</a>',
     author: "Abto Creative",
   },
+  {
+    icon: "Sun",
+    link: '<a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Sun icons created by Pronicon - Flaticon</a>',
+    author: "Pronicon",
+  },
 ];
