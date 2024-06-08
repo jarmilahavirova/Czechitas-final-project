@@ -6,3 +6,6 @@
     background-color: #115b0482;
     }
 
+.disabled {
+    opacity: 40%;
+}

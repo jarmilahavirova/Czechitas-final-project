@@ -5,11 +5,14 @@ import head4 from "../../../assets/head4.png";
 import "./style.css";
 import { useState } from "react";
 
-export const Player = ({ playersNumber }) => {
+
+export const Player = ({ playersNumber, disabled }) => {
   const [avatar, setAvatar] = useState("");
 
   return (
-    <div className="player">
+    <div className={
+        disabled ? "player disabled" : "player"
+      }>
       <p>Hráč {playersNumber}</p>
       <div>
         <img
