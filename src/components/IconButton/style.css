@@ -1,15 +1,20 @@
 .icon_button {
-    width: 40px; 
-    height: 40px;
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    border: none; 
-    outline: none; 
-    cursor: pointer; 
-    border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .icon_button:hover {
-    opacity: 0.8; 
+  opacity: 0.8;
+}
+
+.icon_button--selected {
+  background-color: #115b04;
+  opacity: 54%;
 }
