@@ -2,6 +2,7 @@ import head1 from "../../../assets/head1.png"
 import head2 from "../../../assets/head2.png"
 import head3 from "../../../assets/head3.png"
 import head4 from "../../../assets/head4.png"
+import "./style.css"
 
 export const Player = ({playersNumber}) => {
     return (

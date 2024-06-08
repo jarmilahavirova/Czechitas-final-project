@@ -1,6 +1,8 @@
 import "./style.css";
-import { GameType } from "../../components/HomePage/GameType.jsx";
-import { Player } from "../../components/HomePage/Player.jsx";
+import { GameType } from "../../components/GameType/index.jsx";
+import { Player } from "../../components/Player/index.jsx";
+
+
 
 export const HomePage = () => {
   return (
