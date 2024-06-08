@@ -1,26 +1,30 @@
 import "./style.css";
 import { GameType } from "../../components/GameType/index.jsx";
 import { Player } from "../../components/Player/index.jsx";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import { IconButton } from "../../components/IconButton/index.jsx";
+import { PlayerContext } from "../../context/PlayerContext.js";
 
 export const HomePage = () => {
   const [selectedGameType, setSelectedGameType] = useState("");
   const [player1, setPlayer1] = useState();
   const [player2, setPlayer2] = useState();
 
+  const {players, setPlayers} = useContext(PlayerContext)
   const handleSubmitForm = (evt) => {
     evt.preventDefault()
-// save player1 and 2 in to the context
+
+    setPlayers([player1, player2])
   };
-  console.log(player);
+
+  console.log(players)
 
   return (
     <>
       <h1>RULES OPEN 2024</h1>
       <div className="container">
-        <form onSubmit={() => console.log("submit")}>
+        <form onSubmit={handleSubmitForm}>
           <p>
             Vítejte na turnaji Rules Open 2024, kde místo vašich schopností
             hodit co nejdál nebo co nejpřesněji otestujete vaši znalost
@@ -48,16 +52,16 @@ export const HomePage = () => {
           <Player
             disabled={selectedGameType === "training" ? true : false}
             playersNumber={2}
-            selectedName={(e) =>
+            selectedName={(name) =>
               setPlayer2((prevState) => ({
                 ...prevState,
-                playerName: e.target.value,
+                playerName: name,
               }))
             }
-            selectedAvatar={(e) =>
+            selectedAvatar={(avatar) =>
               setPlayer2((prevState) => ({
                 ...prevState,
-                playerAvatar: e.target.value,
+                playerAvatar: avatar,
               }))
             }
           ></Player>

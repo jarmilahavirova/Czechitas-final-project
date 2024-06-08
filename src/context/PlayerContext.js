@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const PlayerContext = createContext(["cokoliv"]);
+export const PlayerContext = createContext([]);
