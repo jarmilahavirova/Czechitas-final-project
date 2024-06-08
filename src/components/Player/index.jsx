@@ -6,8 +6,19 @@ import "./style.css";
 import { useState } from "react";
 
 
-export const Player = ({ playersNumber, disabled }) => {
+export const Player = ({ playersNumber, disabled, selectedName, selectedAvatar }) => {
   const [avatar, setAvatar] = useState("");
+  const [name, setName] = useState("")
+
+  const handleSelectName = (name) => {
+    selectedName(name);
+    setName(name);
+  };
+
+  const handleSelectAvatar = (avatar) => {
+    selectedAvatar(avatar);
+    setAvatar(avatar);
+  };
 
   return (
     <div className={
@@ -20,28 +31,28 @@ export const Player = ({ playersNumber, disabled }) => {
           className={avatar === "head1" ? "selected" : ""}
           src={head1}
           alt=""
-          onClick={() => setAvatar("head1")}
+          onClick={() => handleSelectAvatar("head1")}
         />
         <img
           className={avatar === "head2" ? "selected" : ""}
           src={head2}
           alt=""
-          onClick={() => setAvatar("head2")}
+          onClick={() => handleSelectAvatar("head2")}
         />
         <img
           className={avatar === "head3" ? "selected" : ""}
           src={head3}
           alt=""
-          onClick={() => setAvatar("head3")}
+          onClick={() => handleSelectAvatar("head3")}
         />
         <img
           className={avatar === "head4" ? "selected" : ""}
           src={head4}
           alt=""
-          onClick={() => setAvatar("head4")}
+          onClick={() => handleSelectAvatar("head4")}
         />
         </div>
-        <input></input>
+        <input onChange={(evt) => handleSelectName(evt.target.value)}></input>
       </div>
     </div>
   );

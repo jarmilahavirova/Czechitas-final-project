@@ -7,13 +7,20 @@ import { IconButton } from "../../components/IconButton/index.jsx";
 
 export const HomePage = () => {
   const [selectedGameType, setSelectedGameType] = useState("");
+  const [player1, setPlayer1] = useState();
+  const [player2, setPlayer2] = useState();
+
+  const handleSubmitForm = (evt) => {
+    evt.preventDefault()
+// save player1 and 2 in to the context
+  };
+  console.log(player);
 
   return (
     <>
-    <h1>RULES OPEN 2024</h1>
+      <h1>RULES OPEN 2024</h1>
       <div className="container">
-        
-        <div>
+        <form onSubmit={() => console.log("submit")}>
           <p>
             Vítejte na turnaji Rules Open 2024, kde místo vašich schopností
             hodit co nejdál nebo co nejpřesněji otestujete vaši znalost
@@ -23,17 +30,42 @@ export const HomePage = () => {
           <GameType
             selectedGameType={(type) => setSelectedGameType(type)}
           ></GameType>
-          <Player playersNumber={1}></Player>
+          <Player
+            playersNumber={1}
+            selectedName={(name) =>
+              setPlayer1((prevState) => ({
+                ...prevState,
+                playerName: name,
+              }))
+            }
+            selectedAvatar={(avatar) =>
+              setPlayer1((prevState) => ({
+                ...prevState,
+                playerAvatar: avatar,
+              }))
+            }
+          ></Player>
           <Player
             disabled={selectedGameType === "training" ? true : false}
             playersNumber={2}
+            selectedName={(e) =>
+              setPlayer2((prevState) => ({
+                ...prevState,
+                playerName: e.target.value,
+              }))
+            }
+            selectedAvatar={(e) =>
+              setPlayer2((prevState) => ({
+                ...prevState,
+                playerAvatar: e.target.value,
+              }))
+            }
           ></Player>
           <div className="menu_buttons">
-            <IconButton icon="./icon-info.png" link="/about"/>
-            <IconButton type="button" selected icon="./icon-disgolf.png"/>
-            
+            <IconButton type="link" icon="./icon-info.png" link="/about" />
+            <IconButton type="submit" selected icon="./icon-disgolf.png" />
           </div>
-        </div>
+        </form>
       </div>
     </>
   );
