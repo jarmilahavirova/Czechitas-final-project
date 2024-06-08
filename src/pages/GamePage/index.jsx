@@ -15,6 +15,7 @@ export const GamePage = ({
 }) => {
   const [playing, setPlaying] = useState(true);
   const players = useContext(PlayerContext);
+  console.log(players);
 
   return (
     <main className="game">
