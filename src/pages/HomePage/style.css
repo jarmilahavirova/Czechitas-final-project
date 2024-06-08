@@ -1,0 +1,23 @@
+.game_type_button {
+    width: 40px; 
+    height: 40px;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    border: none; 
+    outline: none; 
+    cursor: pointer; 
+    border-radius: 50%;
+}
+
+.trenink {
+    background-image: url(../../../assets/icon-person.png);
+}
+
+.game_type_button:hover {
+    opacity: 0.8; 
+}
+
+.turnaj {
+    background-image: url(../../../assets/icon-people.png);
+}
