@@ -1,6 +1,6 @@
-
-
+import "./style.css";
 export const IconButton = ({ text, icon, selected }) => {
+  console.log(icon);
   return (
     <div>
       <button
