@@ -1,3 +1,4 @@
+import "./style.css";
 export const IconButton = ({ text, icon, selected, onClick }) => {
   return (
     <div>
