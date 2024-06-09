@@ -4,6 +4,7 @@ import { Player } from "../../components/Player/index.jsx";
 import { useState } from "react";
 import { IconButton } from "../../components/IconButton/index.jsx";
 import { usePlayers } from "../../PlayersContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
   const [selectedGameType, setSelectedGameType] = useState("");
@@ -15,13 +16,12 @@ export const HomePage = () => {
   const [avatar2, setAvatar2] = useState("");
 
   const { players, setPlayers } = usePlayers();
+  const navigate = useNavigate();
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
-
     setPlayers([player1, player2]);
+    navigate("/game");
   };
-
-  console.log(players);
 
   return (
     <>

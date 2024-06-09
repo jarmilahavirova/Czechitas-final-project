@@ -9,7 +9,7 @@ export const GameType = ({
   deleteAvatar2,
   deleteAvatar1,
 }) => {
-  const [gameType, setGameType] = useState("training");
+  const [gameType, setGameType] = useState("tournament");
 
   const handleSelectGameType = (type) => {
     selectedGameType(type);
