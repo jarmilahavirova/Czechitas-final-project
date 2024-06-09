@@ -19,7 +19,7 @@ export const AvatarAside = ({ playerName, avatar, side }) => {
 
   return (
     <aside className="avatar">
-      <h2 className="avatar__title">{playerName}</h2>
+      {playerName && <h2 className="avatar__title">{playerName}</h2>} 
       <img
         src={chosenAvatar(avatar)}
         alt="Hráčův avatar"
