@@ -7,15 +7,17 @@ import { ScoreCard } from "../../components/Scorecard";
 import { usePlayers } from "../../PlayersContext";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { questions } from "../../components/questions";
 
 export const GamePage = ({}) => {
   const { players, setPlayers } = usePlayers();
   const { gameState, setGameState } = usePlayers();
   const [playing, setPlaying] = useState(false);
   const [currentHole, setCurrentHole] = useState(0);
-  const [questions, setQuestions] = useState(0);
+  const [chosenQuestions, setChosenQuestions] = useState(0);
 
   const navigate = useNavigate();
+  console.log(gameState);
 
   useEffect(() => {
     if (players.length === 0) {
@@ -28,13 +30,15 @@ export const GamePage = ({}) => {
     return shuffledQuestions.slice(0, numberHoles);
   };
 
-  if (gameState === "tournament") {
-    setQuestions(getRandomizeQuestions(18));
-  } else if (gameState === "training") {
-    setQuestions(getRandomizeQuestions(9));
-  }
+  useEffect(() => {
+    if (gameState === "tournament") {
+      setChosenQuestions(getRandomizeQuestions(questions, 18));
+    } else if (gameState === "training") {
+      setChosenQuestions(getRandomizeQuestions(questions, 9));
+    }
+  }, []);
 
-  console.log(questions);
+  console.log(chosenQuestions);
 
   return (
     <main className="game">
