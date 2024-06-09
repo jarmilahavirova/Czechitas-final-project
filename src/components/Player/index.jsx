@@ -58,7 +58,7 @@ export const Player = ({
           />
         </div>
         <input
-          disabled={disabled ? "true" : ""}
+          disabled={disabled ? true : ""}
           value={name}
           onChange={(evt) => handleSelectName(evt.target.value)}
         ></input>

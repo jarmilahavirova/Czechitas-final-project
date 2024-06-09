@@ -34,7 +34,7 @@ export const ResultPage = () => {
           />
           <img src=""></img>
         </div>
-        <Link>HRÁT ZNOVU</Link>
+        <Link className="btn_play_again" to="/">ZAČÍT HRÁT ZNOVU</Link>
       </div>
     </>
   );

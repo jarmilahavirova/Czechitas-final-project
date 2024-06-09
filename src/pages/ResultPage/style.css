@@ -22,3 +22,15 @@
 .winner_img_container {
     height: 400px;
 }
+
+.btn_play_again {
+    background-color: #8dbe84;
+    border:3px solid #115b04;
+    border-radius: 20px;
+text-decoration: none;
+padding:10px
+}
+
+.btn_play_again:hover {
+    cursor: pointer;
+}
