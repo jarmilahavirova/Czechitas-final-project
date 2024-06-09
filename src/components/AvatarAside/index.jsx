@@ -6,20 +6,20 @@ import avatar4 from "../../../assets/avatar4.png";
 
 export const AvatarAside = ({ playerName, avatar, side }) => {
   const chosenAvatar = (avatar) => {
-    if (avatar === 1) {
+    if (avatar === "1") {
       return avatar1;
-    } else if (avatar === 2) {
+    } else if (avatar === "2") {
       return avatar2;
-    } else if (avatar === 3) {
+    } else if (avatar === "3") {
       return avatar3;
-    } else if (avatar === 4) {
+    } else if (avatar === "4") {
       return avatar4;
     }
   };
 
   return (
     <aside className="avatar">
-      {playerName && <h2 className="avatar__title">{playerName}</h2>} 
+      {playerName && <h2 className="avatar__title">{playerName}</h2>}
       <img
         src={chosenAvatar(avatar)}
         alt="Hráčův avatar"

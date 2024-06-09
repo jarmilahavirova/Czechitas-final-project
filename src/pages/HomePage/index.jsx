@@ -57,7 +57,7 @@ export const HomePage = () => {
             selectedAvatar={(avatar) =>
               setPlayer1((prevState) => ({
                 ...prevState,
-                playerAvatar: avatar,
+                playerAvatar: avatar.slice(4),
               }))
             }
           ></Player>
@@ -77,7 +77,7 @@ export const HomePage = () => {
             selectedAvatar={(avatar) =>
               setPlayer2((prevState) => ({
                 ...prevState,
-                playerAvatar: avatar,
+                playerAvatar: avatar.slice(4),
               }))
             }
           ></Player>
