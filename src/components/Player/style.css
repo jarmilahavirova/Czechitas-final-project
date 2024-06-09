@@ -44,3 +44,9 @@ input {
   border: 5px solid #d9d9d9;
   height: 50px;
 }
+
+@media (max-width: 480px) {
+  .player {
+    flex-direction: column;
+  }
+}
