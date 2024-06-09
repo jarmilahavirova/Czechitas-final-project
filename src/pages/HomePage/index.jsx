@@ -48,6 +48,7 @@ export const HomePage = () => {
             deleteAvatar1={setAvatar1}
           ></GameType>
           <Player
+            defaultPlaceholder="Hráč 1"
             avatar={avatar1}
             setAvatar={setAvatar1}
             disabled={false}
@@ -68,6 +69,7 @@ export const HomePage = () => {
             }
           ></Player>
           <Player
+            defaultPlaceholder="Hráč 2"
             avatar={avatar2}
             setAvatar={setAvatar2}
             name={name2}

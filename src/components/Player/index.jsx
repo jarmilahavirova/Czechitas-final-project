@@ -3,7 +3,6 @@ import head2 from "../../../assets/head2.png";
 import head3 from "../../../assets/head3.png";
 import head4 from "../../../assets/head4.png";
 import "./style.css";
-import { useState } from "react";
 
 export const Player = ({
   playersNumber,
@@ -14,6 +13,7 @@ export const Player = ({
   setName,
   setAvatar,
   avatar,
+  defaultPlaceholder,
 }) => {
   const handleSelectName = (name) => {
     selectedName(name);
@@ -61,6 +61,7 @@ export const Player = ({
           disabled={disabled ? true : ""}
           value={name}
           onChange={(evt) => handleSelectName(evt.target.value)}
+          placeholder={defaultPlaceholder}
         ></input>
       </div>
     </div>
