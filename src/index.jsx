@@ -6,8 +6,7 @@ import { ErrorPage } from "./pages/ErrorPage";
 import { GamePage } from "./pages/GamePage";
 import { ResultPage } from "./pages/ResultPage";
 import { AboutPage } from "./pages/AboutPage";
-import { PlayerContext } from "./context/PlayerContext";
-import { useState } from "react";
+import { PlayersProvider } from "./PlayersContext";
 
 const router = createBrowserRouter([
   {
@@ -30,12 +29,10 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const [players, setPlayers] = useState([]);
-
   return (
-    <PlayerContext.Provider value={{ players, setPlayers }}>
+    <PlayersProvider>
       <RouterProvider router={router} />
-    </PlayerContext.Provider>
+    </PlayersProvider>
   );
 };
 

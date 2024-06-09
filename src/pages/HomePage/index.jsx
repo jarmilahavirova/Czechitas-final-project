@@ -1,24 +1,23 @@
 import "./style.css";
 import { GameType } from "../../components/GameType/index.jsx";
 import { Player } from "../../components/Player/index.jsx";
-import { useContext, useState } from "react";
-import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
+import { useState } from "react";
 import { IconButton } from "../../components/IconButton/index.jsx";
-import { PlayerContext } from "../../context/PlayerContext.js";
+import { usePlayers } from "../../PlayersContext.jsx";
 
 export const HomePage = () => {
   const [selectedGameType, setSelectedGameType] = useState("");
   const [player1, setPlayer1] = useState();
   const [player2, setPlayer2] = useState();
 
-  const {players, setPlayers} = useContext(PlayerContext)
+  const { players, setPlayers } = usePlayers();
   const handleSubmitForm = (evt) => {
-    evt.preventDefault()
+    evt.preventDefault();
 
-    setPlayers([player1, player2])
+    setPlayers([player1, player2]);
   };
 
-  console.log(players)
+  console.log(players);
 
   return (
     <>

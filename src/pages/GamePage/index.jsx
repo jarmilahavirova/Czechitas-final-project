@@ -4,7 +4,7 @@ import { Header } from "../../components/Header";
 import { Map } from "../../components/Map";
 import { Quiz } from "../../components/Quiz";
 import { ScoreCard } from "../../components/Scorecard";
-import { PlayerContext } from "../../context/PlayerContext";
+import { usePlayers } from "../../PlayersContext";
 import "./style.css";
 
 export const GamePage = ({
@@ -14,7 +14,7 @@ export const GamePage = ({
   avatar2 = 3,
 }) => {
   const [playing, setPlaying] = useState(true);
-  const players = useContext(PlayerContext);
+  const { players, setPlayers } = usePlayers();
   console.log(players);
 
   return (
