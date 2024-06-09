@@ -38,6 +38,7 @@ export const HomePage = () => {
             deleteName2={setName2}
           ></GameType>
           <Player
+            disabled={false}
             name={name1}
             setName={setName1}
             playersNumber={1}

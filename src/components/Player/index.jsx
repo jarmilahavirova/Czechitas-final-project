@@ -11,10 +11,9 @@ export const Player = ({
   selectedName,
   selectedAvatar,
   name,
-  setName
+  setName,
 }) => {
   const [avatar, setAvatar] = useState("");
-  
 
   const handleSelectName = (name) => {
     selectedName(name);
@@ -22,8 +21,10 @@ export const Player = ({
   };
 
   const handleSelectAvatar = (avatar) => {
-    selectedAvatar(avatar);
-    setAvatar(avatar);
+    if (disabled === false) {
+      selectedAvatar(avatar);
+      setAvatar(avatar);
+    }
   };
 
   return (
@@ -56,7 +57,11 @@ export const Player = ({
             onClick={() => handleSelectAvatar("head4")}
           />
         </div>
-        <input value={name} onChange={(evt) => handleSelectName(evt.target.value)}></input>
+        <input
+          disabled={disabled ? "true" : ""}
+          value={name}
+          onChange={(evt) => handleSelectName(evt.target.value)}
+        ></input>
       </div>
     </div>
   );
