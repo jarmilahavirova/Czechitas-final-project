@@ -1,0 +1,17 @@
+.map__teepad {
+  background-image: url("./icon-people.png");
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  background-size: cover;
+  position: absolute;
+  display: block;
+  top: 356px;
+  left: 488px;
+  transition-duration: 4000ms;
+  transition-property: transform;
+}
+
+.map__cover {
+  position: relative;
+}

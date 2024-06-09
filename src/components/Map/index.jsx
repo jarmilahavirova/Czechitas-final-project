@@ -41,14 +41,79 @@ const holesMap = [
   },
 ];
 
-export const Map = () => {
-  const handleClick = () => {
+const teepadsPositions = [
+  {
+    id: 1,
+    left: 488,
+    top: 356,
+  },
+  {
+    id: 2,
+    left: 500,
+    top: 191,
+  },
+  {
+    id: 3,
+    left: 312,
+    top: 315,
+  },
+  {
+    id: 4,
+    left: 37,
+    top: 183,
+  },
+  {
+    id: 5,
+    left: 93,
+    top: -3,
+  },
+  {
+    id: 6,
+    left: 241,
+    top: 122,
+  },
+  {
+    id: 7,
+    left: 450,
+    top: 73,
+  },
+  {
+    id: 8,
+    left: 421,
+    top: 31,
+  },
+  {
+    id: 9,
+    left: 577,
+    top: 65,
+  },
+];
+
+
+export const Map = ({ currentHole }) => {
+  const goOnHole = () => {
     console.log("Kliknuto");
+  };
+
+  const getPlayersPosition = (currentPosition, teepadsArray) => {
+    const translateTop = teepadsArray[currentPosition].top - teepadsArray[0].top;
+    const translateLeft = teepadsArray[currentPosition].left - teepadsArray[0].left;
+
+    return {
+      transform: `translate(${translateLeft}px,${translateTop}px)`,
+    };
   };
 
   return (
     <>
-      <img src={map} alt="Course map" className="map" useMap="#image-map" />
+      <div className="map__cover">
+        <img src={map} alt="Course map" className="map" useMap="#image-map" />
+
+        <span
+          className="map__teepad"
+          style={getPlayersPosition(currentHole, teepadsPositions)}
+        ></span>
+      </div>
 
       <map name="image-map">
         {holesMap.map((hole) => (
@@ -58,7 +123,7 @@ export const Map = () => {
             title={`Hole ${hole.id}`}
             coords={hole.coords}
             shape="poly"
-            onClick={handleClick}
+            onClick={goOnHole}
           />
         ))}
       </map>
