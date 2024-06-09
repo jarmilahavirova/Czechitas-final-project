@@ -12,21 +12,9 @@ export const GamePage = ({}) => {
   const { players, setPlayers } = usePlayers();
   const [playing, setPlaying] = useState(false);
   const [currentHole, setCurrentHole] = useState(0);
-  const [playersAmount, setPlayersAmount] = useState(0);
+  const [playersAmount, setPlayersAmount] = useState(1);
 
   console.log(players);
-
-  useEffect(() => {
-    if (players.length === 0) {
-      console.log("navigate");
-      const navigate = useNavigate();
-      navigate("/");
-    }
-  }, []);
-
-  if (players[1] === undefined) {
-    setPlayersAmount(1);
-  } else setPlayersAmount(2);
 
   const getRandomizeQuestions = (questions, numberHoles) => {
     const shuffledQuestions = questions.sort(() => Math.random() - 0.5);

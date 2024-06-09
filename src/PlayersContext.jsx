@@ -6,9 +6,12 @@ export const usePlayers = () => useContext(PlayersContext);
 
 export const PlayersProvider = ({ children }) => {
   const [players, setPlayers] = useState([]);
+  const [gameState, setGameState] = useState("");
 
   return (
-    <PlayersContext.Provider value={{ players, setPlayers }}>
+    <PlayersContext.Provider
+      value={{ players, setPlayers, gameState, setGameState }}
+    >
       {children}
     </PlayersContext.Provider>
   );

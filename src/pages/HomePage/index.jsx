@@ -16,6 +16,7 @@ export const HomePage = () => {
   const [avatar2, setAvatar2] = useState("");
 
   const { players, setPlayers } = usePlayers();
+  const { gameState, setGameState } = usePlayers();
   const navigate = useNavigate();
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
