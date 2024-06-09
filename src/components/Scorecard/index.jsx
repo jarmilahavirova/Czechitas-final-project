@@ -3,9 +3,13 @@ import { usePlayers } from "../../PlayersContext";
 import { calculateSum } from "../../utils/calculateSum.js";
 
 const headScorecard = ["", "Hráč", 1, 2, 3, 4, 5, 6, 7, 8, 9, "Celkem"];
+const players = [
+  { name: "Isaac", image: "", score: [2, 3, 2, 4, "", "", "", "", ""] },
+  { name: "Kristin", image: "", score: [2, 2, 2, 3, "", "", "", "", ""] },
+];
 
 export const ScoreCard = () => {
-  const { players } = usePlayers();
+  //const { players } = usePlayers();
 
   return (
     <div className="scorecard">
