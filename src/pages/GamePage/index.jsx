@@ -10,8 +10,10 @@ import { useNavigate } from "react-router-dom";
 
 export const GamePage = ({}) => {
   const { players, setPlayers } = usePlayers();
+  const { gameState, setGameState } = usePlayers();
   const [playing, setPlaying] = useState(false);
   const [currentHole, setCurrentHole] = useState(0);
+  const [questions, setQuestions] = useState(0);
 
   const navigate = useNavigate();
 
@@ -26,9 +28,17 @@ export const GamePage = ({}) => {
     return shuffledQuestions.slice(0, numberHoles);
   };
 
+  if (gameState === "tournament") {
+    setQuestions(getRandomizeQuestions(18));
+  } else if (gameState === "training") {
+    setQuestions(getRandomizeQuestions(9));
+  }
+
+  console.log(questions);
+
   return (
     <main className="game">
-      {playersAmount === 1 && (
+      {gameState === "training" && (
         <AvatarAside
           playerName={players[0].playerName}
           avatar={players[0].playerAvatar}
@@ -55,7 +65,7 @@ export const GamePage = ({}) => {
           Posun jamky
         </p>
       </div>
-      {playersAmount === 2 && (
+      {gameState === "tournament" && (
         <AvatarAside
           playerName={players[1].playerName}
           avatar={players[1].playerAvatar}
