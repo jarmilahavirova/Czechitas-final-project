@@ -1,23 +1,11 @@
 import "./style.css";
 import { usePlayers } from "../../PlayersContext";
+import { calculateSum } from "../../utils/calculateSum.js";
 
 const headScorecard = ["", "Hráč", 1, 2, 3, 4, 5, 6, 7, 8, 9, "Celkem"];
 
 export const ScoreCard = () => {
   const { players } = usePlayers();
-  const calculateSum = (arr) => {
-    const numbers = arr.map((item) => {
-      if (item === "") {
-        return 0;
-      } else {
-        return parseInt(item);
-      }
-    });
-
-    const sum = numbers.reduce((acc, curr) => acc + curr, 0);
-
-    return sum;
-  };
 
   return (
     <div className="scorecard">
