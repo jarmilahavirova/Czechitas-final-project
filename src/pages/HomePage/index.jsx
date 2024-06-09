@@ -11,6 +11,8 @@ export const HomePage = () => {
   const [player2, setPlayer2] = useState();
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
+  const [avatar1, setAvatar1] = useState("");
+  const [avatar2, setAvatar2] = useState("");
 
   const { players, setPlayers } = usePlayers();
   const handleSubmitForm = (evt) => {
@@ -36,8 +38,11 @@ export const HomePage = () => {
             selectedGameType={(type) => setSelectedGameType(type)}
             deleteName1={setName1}
             deleteName2={setName2}
+            deleteAvatar2={setAvatar2}
           ></GameType>
           <Player
+            avatar={avatar1}
+            setAvatar={setAvatar1}
             disabled={false}
             name={name1}
             setName={setName1}
@@ -56,6 +61,8 @@ export const HomePage = () => {
             }
           ></Player>
           <Player
+            avatar={avatar2}
+            setAvatar={setAvatar2}
             name={name2}
             setName={setName2}
             disabled={selectedGameType === "training" ? true : false}

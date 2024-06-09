@@ -12,9 +12,9 @@ export const Player = ({
   selectedAvatar,
   name,
   setName,
+  setAvatar,
+  avatar,
 }) => {
-  const [avatar, setAvatar] = useState("");
-
   const handleSelectName = (name) => {
     selectedName(name);
     setName(name);
