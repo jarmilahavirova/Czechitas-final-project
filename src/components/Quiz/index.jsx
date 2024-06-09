@@ -2,7 +2,13 @@ import "./style.css";
 import teesign from "../../../assets/Hole1.png";
 import { questions } from "../questions";
 
-export const Quiz = () => {
+export const Quiz = ({
+  currentHole,
+  setNextHole,
+  questionPlayer1,
+  questionPlayer2,
+  setGameState,
+}) => {
   return (
     <div className="question">
       <div className="question__infoside">

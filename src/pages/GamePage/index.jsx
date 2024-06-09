@@ -15,6 +15,7 @@ export const GamePage = ({}) => {
   const [playing, setPlaying] = useState(false);
   const [currentHole, setCurrentHole] = useState(0);
   const [chosenQuestions, setChosenQuestions] = useState(0);
+  const [scores, setScores] = useState([]);
 
   const navigate = useNavigate();
   console.log(gameState);
@@ -42,7 +43,7 @@ export const GamePage = ({}) => {
 
   return (
     <main className="game">
-      {gameState === "training" && (
+      {(gameState === "training" || gameState === "tournament") && (
         <AvatarAside
           playerName={players[0].playerName}
           avatar={players[0].playerAvatar}
@@ -52,7 +53,15 @@ export const GamePage = ({}) => {
       <div className="game__middle-section">
         <Header />
         {playing ? (
-          <Quiz />
+          <Quiz
+            currentHole={currentHole}
+            setNextHole={setCurrentHole}
+            questionPlayer1={chosenQuestions[currentHole]}
+            questionPlayer2={
+              gameState === "tournament" && chosenQuestions[currentHole + 9]
+            }
+            setGameState={setPlaying}
+          />
         ) : (
           <Map
             currentHole={currentHole}
