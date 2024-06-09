@@ -1,29 +1,34 @@
-
-
 .container {
-    display: flex;
-    flex-direction: column;
-    border-style: solid;
-    border-color: #115b04;
-    width: 50%;
-    align-items: center; 
-    padding: 30px;
-    margin:0 auto;
-    border-radius: 20px;
-    background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #115b04;
+  width: 50%;
+  align-items: center;
+  padding: 30px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #ffffff;
 }
 
 .menu_buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 25px;
+}
+
+.btn_field {
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 25px;
+}
+
+h1 {
+    color:#115b04;
+    font-size: xx-large;
 }
 
 @media (max-width: 480px) {
-    .container {
-        width: 100%;
-    } 
-    
-    
+  .container {
+    width: 100%;
+  }
 }
