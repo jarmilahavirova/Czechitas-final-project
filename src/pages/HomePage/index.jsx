@@ -1,10 +1,9 @@
 import "./style.css";
 import { GameType } from "../../components/GameType/index.jsx";
 import { Player } from "../../components/Player/index.jsx";
-import { useContext, useState } from "react";
-import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
+import { useState } from "react";
 import { IconButton } from "../../components/IconButton/index.jsx";
-import { PlayerContext } from "../../context/PlayerContext.js";
+import { usePlayers } from "../../PlayersContext.jsx";
 
 export const HomePage = () => {
   const [selectedGameType, setSelectedGameType] = useState("");
@@ -13,7 +12,7 @@ export const HomePage = () => {
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
 
-  const { players, setPlayers } = useContext(PlayerContext);
+  const { players, setPlayers } = usePlayers();
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
 
