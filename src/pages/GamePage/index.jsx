@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AvatarAside } from "../../components/AvatarAside";
 import { Header } from "../../components/Header";
 import { Map } from "../../components/Map";
@@ -6,25 +6,53 @@ import { Quiz } from "../../components/Quiz";
 import { ScoreCard } from "../../components/Scorecard";
 import { usePlayers } from "../../PlayersContext";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 export const GamePage = ({}) => {
+  const { players, setPlayers } = usePlayers();
   const [playing, setPlaying] = useState(false);
   const [currentHole, setCurrentHole] = useState(0);
-  const { players, setPlayers } = usePlayers();
+  const [playersAmount, setPlayersAmount] = useState(0);
 
-  const randomize = () => {};
   console.log(players);
+
+  useEffect(() => {
+    if (players.length === 0) {
+      console.log("navigate");
+      const navigate = useNavigate();
+      navigate("/");
+    }
+  }, []);
+
+  if (players[1] === undefined) {
+    setPlayersAmount(1);
+  } else setPlayersAmount(2);
+
+  const getRandomizeQuestions = (questions, numberHoles) => {
+    const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    return shuffledQuestions.slice(0, numberHoles);
+  };
 
   return (
     <main className="game">
-      <AvatarAside
-        playerName={players[0].playerName}
-        avatar={players[0].playerAvatar}
-        side={"left"}
-      />
+      {playersAmount === 1 && (
+        <AvatarAside
+          playerName={players[0].playerName}
+          avatar={players[0].playerAvatar}
+          side={"left"}
+        />
+      )}
       <div className="game__middle-section">
         <Header />
-        {playing ? <Quiz /> : <Map currentHole={currentHole} />}
+        {playing ? (
+          <Quiz />
+        ) : (
+          <Map
+            currentHole={currentHole}
+            startQuestion={setPlaying}
+            gameState={playing}
+          />
+        )}
         <ScoreCard />
         <p
           onClick={() => {
@@ -34,11 +62,13 @@ export const GamePage = ({}) => {
           Posun jamky
         </p>
       </div>
-      <AvatarAside
-        playerName={players[1].playerName}
-        avatar={players[1].playerAvatar}
-        side={"right"}
-      />
+      {playersAmount === 2 && (
+        <AvatarAside
+          playerName={players[1].playerName}
+          avatar={players[1].playerAvatar}
+          side={"right"}
+        />
+      )}
     </main>
   );
 };

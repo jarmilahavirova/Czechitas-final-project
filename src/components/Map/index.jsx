@@ -89,15 +89,16 @@ const teepadsPositions = [
   },
 ];
 
-
-export const Map = ({ currentHole }) => {
+export const Map = ({ currentHole, startQuestion, gameState }) => {
   const goOnHole = () => {
     console.log("Kliknuto");
   };
 
   const getPlayersPosition = (currentPosition, teepadsArray) => {
-    const translateTop = teepadsArray[currentPosition].top - teepadsArray[0].top;
-    const translateLeft = teepadsArray[currentPosition].left - teepadsArray[0].left;
+    const translateTop =
+      teepadsArray[currentPosition].top - teepadsArray[0].top;
+    const translateLeft =
+      teepadsArray[currentPosition].left - teepadsArray[0].left;
 
     return {
       transform: `translate(${translateLeft}px,${translateTop}px)`,
@@ -123,7 +124,9 @@ export const Map = ({ currentHole }) => {
             title={`Hole ${hole.id}`}
             coords={hole.coords}
             shape="poly"
-            onClick={goOnHole}
+            onClick={() => {
+              startQuestion(!gameState);
+            }}
           />
         ))}
       </map>
