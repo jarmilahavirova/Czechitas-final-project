@@ -7,16 +7,20 @@ import { usePlayers } from "../../PlayersContext.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
-  const [selectedGameType, setSelectedGameType] = useState("");
-  const [player1, setPlayer1] = useState({ playerName: "Hráč 1", playerAvatar: "1" });
-  const [player2, setPlayer2] = useState({ playerName: "Hráč 2", playerAvatar: "1" });
+  const [player1, setPlayer1] = useState({
+    playerName: "Hráč 1",
+    playerAvatar: "1",
+  });
+  const [player2, setPlayer2] = useState({
+    playerName: "Hráč 2",
+    playerAvatar: "1",
+  });
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
   const [avatar1, setAvatar1] = useState("");
   const [avatar2, setAvatar2] = useState("");
-  const [gametype, setGameType] = useState("");
 
-  const { players, setPlayers } = usePlayers();
+  const { setPlayers } = usePlayers();
   const { gameState, setGameState } = usePlayers();
   const navigate = useNavigate();
   const handleSubmitForm = (evt) => {
@@ -37,7 +41,7 @@ export const HomePage = () => {
           </p>
 
           <GameType
-            selectedGameType={(type) => setSelectedGameType(type)}
+            selectedGameType={(type) => setGameState(type)}
             deleteName1={setName1}
             deleteName2={setName2}
             deleteAvatar2={setAvatar2}
@@ -68,7 +72,7 @@ export const HomePage = () => {
             setAvatar={setAvatar2}
             name={name2}
             setName={setName2}
-            disabled={selectedGameType === "training" ? true : false}
+            disabled={gameState === "training" ? true : false}
             playersNumber={2}
             selectedName={(name) =>
               setPlayer2((prevState) => ({
