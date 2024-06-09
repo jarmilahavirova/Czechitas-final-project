@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
   const [selectedGameType, setSelectedGameType] = useState("");
-  const [player1, setPlayer1] = useState();
-  const [player2, setPlayer2] = useState();
+  const [player1, setPlayer1] = useState({ playerName: "Hráč 1", playerAvatar: "1" });
+  const [player2, setPlayer2] = useState({ playerName: "Hráč 2", playerAvatar: "1" });
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
   const [avatar1, setAvatar1] = useState("");
