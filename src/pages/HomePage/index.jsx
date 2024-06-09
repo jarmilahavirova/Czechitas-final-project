@@ -39,6 +39,7 @@ export const HomePage = () => {
             deleteName1={setName1}
             deleteName2={setName2}
             deleteAvatar2={setAvatar2}
+            deleteAvatar1={setAvatar1}
           ></GameType>
           <Player
             avatar={avatar1}

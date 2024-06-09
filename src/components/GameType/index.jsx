@@ -7,6 +7,7 @@ export const GameType = ({
   deleteName1,
   deleteName2,
   deleteAvatar2,
+  deleteAvatar1,
 }) => {
   const [gameType, setGameType] = useState("training");
 
@@ -15,9 +16,8 @@ export const GameType = ({
     setGameType(type);
     deleteName1("");
     deleteName2("");
-    if (type === "training") {
-      deleteAvatar2("");
-    }
+    deleteAvatar2("");
+    deleteAvatar1("");
   };
 
   return (
