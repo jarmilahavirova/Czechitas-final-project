@@ -4,20 +4,24 @@ import { Player } from "../../components/Player/index.jsx";
 import { useState } from "react";
 import { IconButton } from "../../components/IconButton/index.jsx";
 import { usePlayers } from "../../PlayersContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
   const [selectedGameType, setSelectedGameType] = useState("");
   const [player1, setPlayer1] = useState();
   const [player2, setPlayer2] = useState();
+  const [name1, setName1] = useState("");
+  const [name2, setName2] = useState("");
+  const [avatar1, setAvatar1] = useState("");
+  const [avatar2, setAvatar2] = useState("");
 
   const { players, setPlayers } = usePlayers();
+  const navigate = useNavigate();
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
-
     setPlayers([player1, player2]);
+    navigate("/game");
   };
-
-  console.log(players);
 
   return (
     <>
@@ -32,8 +36,17 @@ export const HomePage = () => {
 
           <GameType
             selectedGameType={(type) => setSelectedGameType(type)}
+            deleteName1={setName1}
+            deleteName2={setName2}
+            deleteAvatar2={setAvatar2}
+            deleteAvatar1={setAvatar1}
           ></GameType>
           <Player
+            avatar={avatar1}
+            setAvatar={setAvatar1}
+            disabled={false}
+            name={name1}
+            setName={setName1}
             playersNumber={1}
             selectedName={(name) =>
               setPlayer1((prevState) => ({
@@ -49,6 +62,10 @@ export const HomePage = () => {
             }
           ></Player>
           <Player
+            avatar={avatar2}
+            setAvatar={setAvatar2}
+            name={name2}
+            setName={setName2}
             disabled={selectedGameType === "training" ? true : false}
             playersNumber={2}
             selectedName={(name) =>

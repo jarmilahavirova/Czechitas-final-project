@@ -5,54 +5,63 @@ import head4 from "../../../assets/head4.png";
 import "./style.css";
 import { useState } from "react";
 
-
-export const Player = ({ playersNumber, disabled, selectedName, selectedAvatar }) => {
-  const [avatar, setAvatar] = useState("");
-  const [name, setName] = useState("")
-
+export const Player = ({
+  playersNumber,
+  disabled,
+  selectedName,
+  selectedAvatar,
+  name,
+  setName,
+  setAvatar,
+  avatar,
+}) => {
   const handleSelectName = (name) => {
     selectedName(name);
     setName(name);
   };
 
   const handleSelectAvatar = (avatar) => {
-    selectedAvatar(avatar);
-    setAvatar(avatar);
+    if (disabled === false) {
+      selectedAvatar(avatar);
+      setAvatar(avatar);
+    }
   };
 
   return (
-    <div className={
-        disabled ? "player disabled" : "player"
-      }>
+    <div className={disabled ? "player disabled" : "player"}>
       <p className="player_text">Hráč {playersNumber}</p>
       <div className="imgInput">
         <div className="images">
-        <img
-          className={avatar === "head1" ? "selected" : ""}
-          src={head1}
-          alt=""
-          onClick={() => handleSelectAvatar("head1")}
-        />
-        <img
-          className={avatar === "head2" ? "selected" : ""}
-          src={head2}
-          alt=""
-          onClick={() => handleSelectAvatar("head2")}
-        />
-        <img
-          className={avatar === "head3" ? "selected" : ""}
-          src={head3}
-          alt=""
-          onClick={() => handleSelectAvatar("head3")}
-        />
-        <img
-          className={avatar === "head4" ? "selected" : ""}
-          src={head4}
-          alt=""
-          onClick={() => handleSelectAvatar("head4")}
-        />
+          <img
+            className={avatar === "head1" ? "selected" : ""}
+            src={head1}
+            alt=""
+            onClick={() => handleSelectAvatar("head1")}
+          />
+          <img
+            className={avatar === "head2" ? "selected" : ""}
+            src={head2}
+            alt=""
+            onClick={() => handleSelectAvatar("head2")}
+          />
+          <img
+            className={avatar === "head3" ? "selected" : ""}
+            src={head3}
+            alt=""
+            onClick={() => handleSelectAvatar("head3")}
+          />
+          <img
+            className={avatar === "head4" ? "selected" : ""}
+            src={head4}
+            alt=""
+            onClick={() => handleSelectAvatar("head4")}
+          />
         </div>
-        <input onChange={(evt) => handleSelectName(evt.target.value)}></input>
+        <input
+          disabled={disabled ? "true" : ""}
+          value={name}
+          onChange={(evt) => handleSelectName(evt.target.value)}
+        ></input>
       </div>
     </div>
   );
