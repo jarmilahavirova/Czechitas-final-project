@@ -7,19 +7,21 @@ import { ScoreCard } from "../../components/Scorecard";
 import { usePlayers } from "../../PlayersContext";
 import "./style.css";
 
-export const GamePage = ({
-  player1 = "Isaac",
-  player2 = "Kristin",
-  avatar1 = 2,
-  avatar2 = 3,
-}) => {
+export const GamePage = ({}) => {
   const [playing, setPlaying] = useState(false);
   const [currentHole, setCurrentHole] = useState(0);
   const { players, setPlayers } = usePlayers();
 
+  const randomize = () => {};
+  console.log(players);
+
   return (
     <main className="game">
-      <AvatarAside playerName={player1} avatar={avatar1} side={"left"} />
+      <AvatarAside
+        playerName={players[0].playerName}
+        avatar={players[0].playerAvatar}
+        side={"left"}
+      />
       <div className="game__middle-section">
         <Header />
         {playing ? <Quiz /> : <Map currentHole={currentHole} />}
@@ -32,7 +34,11 @@ export const GamePage = ({
           Posun jamky
         </p>
       </div>
-      <AvatarAside playerName={player2} avatar={avatar2} side={"right"} />
+      <AvatarAside
+        playerName={players[1].playerName}
+        avatar={players[1].playerAvatar}
+        side={"right"}
+      />
     </main>
   );
 };
