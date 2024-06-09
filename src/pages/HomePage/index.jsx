@@ -10,15 +10,17 @@ export const HomePage = () => {
   const [selectedGameType, setSelectedGameType] = useState("");
   const [player1, setPlayer1] = useState();
   const [player2, setPlayer2] = useState();
+  const [name1, setName1] = useState("");
+  const [name2, setName2] = useState("");
 
-  const {players, setPlayers} = useContext(PlayerContext)
+  const { players, setPlayers } = useContext(PlayerContext);
   const handleSubmitForm = (evt) => {
-    evt.preventDefault()
+    evt.preventDefault();
 
-    setPlayers([player1, player2])
+    setPlayers([player1, player2]);
   };
 
-  console.log(players)
+  console.log(players);
 
   return (
     <>
@@ -33,8 +35,12 @@ export const HomePage = () => {
 
           <GameType
             selectedGameType={(type) => setSelectedGameType(type)}
+            deleteName1={setName1}
+            deleteName2={setName2}
           ></GameType>
           <Player
+            name={name1}
+            setName={setName1}
             playersNumber={1}
             selectedName={(name) =>
               setPlayer1((prevState) => ({
@@ -50,6 +56,8 @@ export const HomePage = () => {
             }
           ></Player>
           <Player
+            name={name2}
+            setName={setName2}
             disabled={selectedGameType === "training" ? true : false}
             playersNumber={2}
             selectedName={(name) =>

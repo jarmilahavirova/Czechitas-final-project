@@ -5,10 +5,16 @@ import head4 from "../../../assets/head4.png";
 import "./style.css";
 import { useState } from "react";
 
-
-export const Player = ({ playersNumber, disabled, selectedName, selectedAvatar }) => {
+export const Player = ({
+  playersNumber,
+  disabled,
+  selectedName,
+  selectedAvatar,
+  name,
+  setName
+}) => {
   const [avatar, setAvatar] = useState("");
-  const [name, setName] = useState("")
+  
 
   const handleSelectName = (name) => {
     selectedName(name);
@@ -21,38 +27,36 @@ export const Player = ({ playersNumber, disabled, selectedName, selectedAvatar }
   };
 
   return (
-    <div className={
-        disabled ? "player disabled" : "player"
-      }>
+    <div className={disabled ? "player disabled" : "player"}>
       <p className="player_text">Hráč {playersNumber}</p>
       <div className="imgInput">
         <div className="images">
-        <img
-          className={avatar === "head1" ? "selected" : ""}
-          src={head1}
-          alt=""
-          onClick={() => handleSelectAvatar("head1")}
-        />
-        <img
-          className={avatar === "head2" ? "selected" : ""}
-          src={head2}
-          alt=""
-          onClick={() => handleSelectAvatar("head2")}
-        />
-        <img
-          className={avatar === "head3" ? "selected" : ""}
-          src={head3}
-          alt=""
-          onClick={() => handleSelectAvatar("head3")}
-        />
-        <img
-          className={avatar === "head4" ? "selected" : ""}
-          src={head4}
-          alt=""
-          onClick={() => handleSelectAvatar("head4")}
-        />
+          <img
+            className={avatar === "head1" ? "selected" : ""}
+            src={head1}
+            alt=""
+            onClick={() => handleSelectAvatar("head1")}
+          />
+          <img
+            className={avatar === "head2" ? "selected" : ""}
+            src={head2}
+            alt=""
+            onClick={() => handleSelectAvatar("head2")}
+          />
+          <img
+            className={avatar === "head3" ? "selected" : ""}
+            src={head3}
+            alt=""
+            onClick={() => handleSelectAvatar("head3")}
+          />
+          <img
+            className={avatar === "head4" ? "selected" : ""}
+            src={head4}
+            alt=""
+            onClick={() => handleSelectAvatar("head4")}
+          />
         </div>
-        <input onChange={(evt) => handleSelectName(evt.target.value)}></input>
+        <input value={name} onChange={(evt) => handleSelectName(evt.target.value)}></input>
       </div>
     </div>
   );

@@ -2,11 +2,14 @@ import { IconButton } from "../IconButton";
 import "./style.css";
 import { useState } from "react";
 
-export const GameType = ({ selectedGameType }) => {
+export const GameType = ({ selectedGameType, deleteName1, deleteName2 }) => {
   const [gameType, setGameType] = useState("training");
   const handleSelectGameType = (type) => {
     selectedGameType(type);
     setGameType(type);
+    deleteName1("");
+    deleteName2("")
+
   };
   return (
     <div className="players_number">
@@ -17,7 +20,9 @@ export const GameType = ({ selectedGameType }) => {
         text="trénink"
         icon="./icon-person.png"
         selected={gameType === "training"}
-        onClick={() => handleSelectGameType("training")}
+        onClick={() => handleSelectGameType("training")
+
+        }
       />
       <IconButton
         type="button"
