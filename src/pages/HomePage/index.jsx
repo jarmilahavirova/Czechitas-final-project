@@ -13,7 +13,7 @@ export const HomePage = () => {
   });
   const [player2, setPlayer2] = useState({
     playerName: "Hráč 2",
-    playerAvatar: "1",
+    playerAvatar: "2",
   });
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
