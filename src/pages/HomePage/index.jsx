@@ -14,6 +14,7 @@ export const HomePage = () => {
   const [name2, setName2] = useState("");
   const [avatar1, setAvatar1] = useState("");
   const [avatar2, setAvatar2] = useState("");
+  const [gametype, setGameType] = useState("");
 
   const { players, setPlayers } = usePlayers();
   const { gameState, setGameState } = usePlayers();
