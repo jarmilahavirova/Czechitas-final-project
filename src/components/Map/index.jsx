@@ -127,6 +127,7 @@ export const Map = ({ currentHole, startQuestion, gameState }) => {
             onClick={() => {
               startQuestion(!gameState);
             }}
+            className="map__hole-surface"
           />
         ))}
       </map>

@@ -16,6 +16,7 @@ body {
   color: #282425;
   background-image: url(../assets/background.jpg);
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: 100vw 100vh;
   line-height: 1.5;
   text-align: center;

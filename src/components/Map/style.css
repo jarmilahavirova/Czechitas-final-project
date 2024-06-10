@@ -1,3 +1,9 @@
+.map {
+  border: 2px solid white;
+  border-bottom: none;
+  border-radius: 25px 25px 0 0;
+}
+
 .map__teepad {
   background-image: url("./icon-people.png");
   background-repeat: no-repeat;
@@ -14,4 +20,13 @@
 
 .map__cover {
   position: relative;
+  font-size: 0;
+}
+
+.map__hole-surface:hover {
+  cursor: pointer;
+}
+
+.map__hole-surface--active {
+  border: 2px solid red;
 }

@@ -2,7 +2,7 @@
   display: flex;
   background-color: white;
   border-radius: 25px 25px 0 0;
-  width: 900px;
+  width: 780px;
 }
 
 .question__infoside {
@@ -10,6 +10,7 @@
   flex-direction: column;
   margin: 25px;
   align-items: center;
+  gap: 10px;
 }
 
 .question__teesign {
@@ -21,9 +22,26 @@
   width: 50px;
 }
 
-.question__answer {
+.question__answer,
+.question__button {
   background-color: #d9d9d9;
   padding: 15px;
   border-radius: 20px;
   margin-right: 25px;
+}
+
+.question__buttonBox {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.question__button {
+  flex-basis: 300px;
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+
+.question__button--action {
+  background-color: #115b0482;
 }

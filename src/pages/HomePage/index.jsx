@@ -1,7 +1,7 @@
 import "./style.css";
 import { GameType } from "../../components/GameType/index.jsx";
 import { Player } from "../../components/Player/index.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IconButton } from "../../components/IconButton/index.jsx";
 import { usePlayers } from "../../PlayersContext.jsx";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +22,12 @@ export const HomePage = () => {
 
   const { setPlayers } = usePlayers();
   const { gameState, setGameState } = usePlayers();
+
+  useEffect(() => {
+    setPlayers([]);
+    setGameState("tournament");
+  }, []);
+
   const navigate = useNavigate();
   const handleSubmitForm = (evt) => {
     evt.preventDefault();

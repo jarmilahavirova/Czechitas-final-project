@@ -493,7 +493,7 @@ export const questions = [
   {
     id: 33,
     question:
-      "Pokud můj disk skončil v OB (out-of-bounds), tak obdržím kolik restných hodů?",
+      "Pokud můj disk skončil v OB (out-of-bounds), tak obdržím kolik trestných hodů?",
     answers: [
       { text: "2", correct: false },
       { text: "1", correct: true },
