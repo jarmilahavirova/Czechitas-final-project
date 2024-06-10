@@ -14,6 +14,7 @@ export const GamePage = ({}) => {
   const { gameState, setGameState } = usePlayers();
   const [playing, setPlaying] = useState(false);
   const [currentHole, setCurrentHole] = useState(0);
+  const [currentHoleTry, setCurrentHoleTry] = useState(0);
   const [chosenQuestions, setChosenQuestions] = useState(0);
   const [scores, setScores] = useState([]);
 
@@ -25,6 +26,12 @@ export const GamePage = ({}) => {
       navigate("/");
     }
   }, []);
+
+  useEffect(() => {
+    if (currentHoleTry > currentHole) {
+      setCurrentHole(currentHole + 1);
+    }
+  });
 
   const getRandomizeQuestions = (questions, numberHoles) => {
     const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
@@ -54,8 +61,8 @@ export const GamePage = ({}) => {
         <Header />
         {playing ? (
           <Quiz
-            currentHole={currentHole}
-            setNextHole={setCurrentHole}
+            currentHole={currentHoleTry}
+            setNextHole={setCurrentHoleTry}
             questionPlayer1={chosenQuestions[currentHole]}
             questionPlayer2={
               gameState === "tournament" && chosenQuestions[currentHole + 9]
