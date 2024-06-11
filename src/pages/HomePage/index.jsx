@@ -10,10 +10,12 @@ export const HomePage = () => {
   const [player1, setPlayer1] = useState({
     playerName: "Hráč 1",
     playerAvatar: "1",
+    score: ["", "", "", "", "", "", "", "", ""],
   });
   const [player2, setPlayer2] = useState({
     playerName: "Hráč 2",
     playerAvatar: "2",
+    score: ["", "", "", "", "", "", "", "", ""],
   });
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");

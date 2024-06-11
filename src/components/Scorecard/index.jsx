@@ -3,13 +3,10 @@ import { usePlayers } from "../../PlayersContext";
 import { calculateSum } from "../../utils/calculateSum.js";
 
 const headScorecard = ["", "Hráč", 1, 2, 3, 4, 5, 6, 7, 8, 9, "Celkem"];
-const players = [
-  { name: "Isaac", image: "", score: [2, 3, 2, 4, "", "", "", "", ""] },
-  { name: "Kristin", image: "", score: [2, 2, 2, 3, "", "", "", "", ""] },
-];
 
 export const ScoreCard = () => {
-  //const { players } = usePlayers();
+  const { players } = usePlayers();
+  const { gameState } = usePlayers();
 
   return (
     <div className="scorecard">
@@ -22,16 +19,26 @@ export const ScoreCard = () => {
           </tr>
         </thead>
         <tbody>
-          {players.map((player, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{player.name}</td>
-              {player.score.map((score, index) => (
+          {(gameState === "training" || gameState === "tournament") && (
+            <tr>
+              <td>{1}</td>
+              <td>{players[0].playerName}</td>
+              {players[0].score.map((score, index) => (
                 <td key={index}>{score}</td>
               ))}
-              <td>{calculateSum(player.score)}</td>
+              <td>{calculateSum(players[0].score)}</td>
             </tr>
-          ))}
+          )}
+          {gameState === "tournament" && (
+            <tr>
+              <td>{2}</td>
+              <td>{players[1].playerName}</td>
+              {players[1].score.map((score, index) => (
+                <td key={index}>{score}</td>
+              ))}
+              <td>{calculateSum(players[1].score)}</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
