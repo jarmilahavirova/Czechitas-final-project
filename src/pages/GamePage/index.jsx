@@ -13,8 +13,8 @@ export const GamePage = ({}) => {
   const { players, setPlayers } = usePlayers();
   const { gameState, setGameState } = usePlayers();
   const [playing, setPlaying] = useState(false);
+  const [currentPosition, setCurrentPosition] = useState(0);
   const [currentHole, setCurrentHole] = useState(0);
-  const [currentHoleTry, setCurrentHoleTry] = useState(0);
   const [chosenQuestions, setChosenQuestions] = useState(0);
   const [scores, setScores] = useState([]);
 
@@ -28,8 +28,8 @@ export const GamePage = ({}) => {
   }, []);
 
   useEffect(() => {
-    if (currentHoleTry > currentHole) {
-      setCurrentHole(currentHole + 1);
+    if (currentHole > currentPosition) {
+      setCurrentPosition(currentPosition + 1);
     }
   });
 
@@ -61,8 +61,8 @@ export const GamePage = ({}) => {
         <Header />
         {playing ? (
           <Quiz
-            currentHole={currentHoleTry}
-            setNextHole={setCurrentHoleTry}
+            currentHole={currentHole}
+            setNextHole={setCurrentHole}
             questionPlayer1={chosenQuestions[currentHole]}
             questionPlayer2={
               gameState === "tournament" && chosenQuestions[currentHole + 9]
@@ -71,7 +71,7 @@ export const GamePage = ({}) => {
           />
         ) : (
           <Map
-            currentHole={currentHole}
+            currentHole={currentPosition}
             startQuestion={setPlaying}
             gameState={playing}
           />
@@ -79,6 +79,7 @@ export const GamePage = ({}) => {
         <ScoreCard />
         <p
           onClick={() => {
+            setCurrentPosition(currentPosition + 1);
             setCurrentHole(currentHole + 1);
           }}
         >
