@@ -19,16 +19,22 @@
 }
 
 .btn_field {
-    display: flex;
+  display: flex;
 }
 
 h1 {
-    color:#115b04;
-    font-size: xx-large;
+  color: #115b04;
+  font-size: xx-large;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .container {
     width: 100%;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .container {
+    width: 75%;
   }
 }
