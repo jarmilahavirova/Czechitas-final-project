@@ -39,8 +39,8 @@ export const Quiz = ({
         />
       </div>
       <div className="question__textside">
-        <p className="question__textQuestion">{questions[0].question}</p>
-        {questions[0].answers.map((answer, index) => (
+        <p className="question__textQuestion">{questionPlayer1.question}</p>
+        {questionPlayer1.answers.map((answer, index) => (
           <p className="question__answer" key={index}>
             {answer.text}
           </p>
