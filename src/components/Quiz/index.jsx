@@ -1,6 +1,6 @@
 import "./style.css";
-import { questions } from "../questions";
 import { useEffect, useState } from "react";
+import { usePlayers } from "../../PlayersContext";
 
 export const Quiz = ({
   currentHole,
@@ -8,18 +8,32 @@ export const Quiz = ({
   questionPlayer1,
   questionPlayer2,
   setGameState,
+  currentPlayer,
+  setCurrentPlayer,
 }) => {
-  const [currentPlayer, setCurrentPlayer] = useState(0);
+  const { players } = usePlayers();
+  const { gameState } = usePlayers();
   const [weatherProbability, setWeatherProbablity] = useState(0);
+
+  useEffect(() => {
+    setWeatherProbablity(Math.random());
+  }, []);
 
   const handleOkButton = () => {
     setGameState(false);
     setNextHole(currentHole + 1);
   };
 
-  useEffect(() => {
-    setWeatherProbablity(Math.random());
-  }, []);
+  const checkCurrentPlayer = () => {
+    if (gameState === "tournament") {
+      for (let i = currentHole - 1; i > 1; i--) {
+        if (players[1].score[i] < players[0].score[i]) {
+          setCurrentPlayer(1);
+          return;
+        }
+      }
+    }
+  };
 
   return (
     <div className="question">

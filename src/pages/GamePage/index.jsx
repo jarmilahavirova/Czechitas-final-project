@@ -16,6 +16,7 @@ export const GamePage = ({}) => {
   const [currentPosition, setCurrentPosition] = useState(0);
   const [currentHole, setCurrentHole] = useState(0);
   const [chosenQuestions, setChosenQuestions] = useState(0);
+  const [currentPlayer, setCurrentPlayer] = useState(0);
   const [scores, setScores] = useState([]);
 
   const navigate = useNavigate();
@@ -55,6 +56,7 @@ export const GamePage = ({}) => {
           playerName={players[0].playerName}
           avatar={players[0].playerAvatar}
           side={"left"}
+          isCurrentPlayer={currentPlayer === 0 && true}
         />
       )}
       <div className="game__middle-section">
@@ -68,6 +70,8 @@ export const GamePage = ({}) => {
               gameState === "tournament" && chosenQuestions[currentHole + 9]
             }
             setGameState={setPlaying}
+            currentPlayer={currentPlayer}
+            setCurrentPlayer={setCurrentPlayer}
           />
         ) : (
           <Map
@@ -91,6 +95,7 @@ export const GamePage = ({}) => {
           playerName={players[1].playerName}
           avatar={players[1].playerAvatar}
           side={"right"}
+          isCurrentPlayer={currentPlayer === 1 && true}
         />
       )}
     </main>
