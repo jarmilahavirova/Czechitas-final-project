@@ -20,7 +20,6 @@ export const GamePage = ({}) => {
   const [scores, setScores] = useState([]);
 
   const navigate = useNavigate();
-  console.log(gameState);
 
   useEffect(() => {
     if (players.length === 0) {
@@ -46,8 +45,6 @@ export const GamePage = ({}) => {
       setChosenQuestions(getRandomizeQuestions(questions, 9));
     }
   }, []);
-
-  console.log(chosenQuestions);
 
   return (
     <main className="game">

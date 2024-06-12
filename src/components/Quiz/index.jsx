@@ -1,6 +1,7 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import { usePlayers } from "../../PlayersContext";
+import { useNavigate } from "react-router-dom";
 
 export const Quiz = ({
   currentHole,
@@ -13,6 +14,9 @@ export const Quiz = ({
 }) => {
   const { players, setPlayers } = usePlayers();
   const { gameState } = usePlayers();
+
+  const navigate = useNavigate();
+
   const [weatherProbability, setWeatherProbablity] = useState(0);
   const [amountAnsweredQuestions, setAmountAnsweredQuestions] = useState(0);
   const [questionFinished, setQuestionFinished] = useState(false);
@@ -33,7 +37,6 @@ export const Quiz = ({
   };
 
   const handleClickedAnswer = (answer, index) => {
-    console.log("Kliknuto na odpověď");
     setClickedQuestion(index);
     setAmountAnsweredQuestions(amountAnsweredQuestions + 1);
     setQuestionFinished(true);
@@ -42,21 +45,17 @@ export const Quiz = ({
       setQuestionClassName("question__answer question__answer--corect");
       if (weatherProbability < 0.75) {
         updateScore(2);
-        console.log("Hraje za 2");
       } else {
         updateScore(3);
-        console.log("Hraje za 3 (fouká)");
       }
     }
 
     if (answer.correct === false) {
       setQuestionClassName("question__answer question__answer--wrong");
       if (weatherProbability < 0.75) {
-        console.log("Hraje za 3");
         updateScore(3);
       } else {
         updateScore(4);
-        console.log("Hraje za 4 (fouká)");
       }
     }
   };
@@ -76,11 +75,14 @@ export const Quiz = ({
     }
   };
 
-  const handleOkButton = () => {
+  const handleActionButton = () => {
     if (
       (gameState === "training" && amountAnsweredQuestions === 1) ||
       (gameState === "tournament" && amountAnsweredQuestions === 2)
     ) {
+      if (currentHole === 8) {
+        navigate("/result");
+      }
       setGameState(false);
       setNextHole(currentHole + 1);
       checkCurrentPlayer();
@@ -92,6 +94,15 @@ export const Quiz = ({
         setCurrentPlayer(1);
       } else setCurrentPlayer(0);
     }
+  };
+
+  const handleSkipButton = () => {
+    // setAmountAnsweredQuestions(amountAnsweredQuestions + 1);
+    // console.log(`Čekujeme počet odpovědí: ${amountAnsweredQuestions}`);
+    // setQuestionFinished(true);
+    // console.log(`Očekávám true: ${questionFinished}`);
+    // updateScore(7);
+    // handleActionButton();
   };
 
   return (
@@ -134,10 +145,12 @@ export const Quiz = ({
         )}
 
         <div className="question__buttonBox">
-          <div className="question__button">Přeskočit</div>
+          <div className="question__button" onClick={handleSkipButton}>
+            Přeskočit (zapíšu 7)
+          </div>
           <div
             className="question__button question__button--action"
-            onClick={handleOkButton}
+            onClick={handleActionButton}
           >
             OK
           </div>

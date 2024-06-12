@@ -90,10 +90,6 @@ const teepadsPositions = [
 ];
 
 export const Map = ({ currentHole, startQuestion, gameState }) => {
-  const goOnHole = () => {
-    console.log("Kliknuto");
-  };
-
   const getPlayersPosition = (currentPosition, teepadsArray) => {
     const translateTop =
       teepadsArray[currentPosition].top - teepadsArray[0].top;
