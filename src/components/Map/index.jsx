@@ -1,5 +1,6 @@
 import "./style.css";
 import map from "../../../assets/map.jpg";
+import { usePlayers } from "../../PlayersContext";
 
 const holesMap = [
   {
@@ -89,7 +90,8 @@ const teepadsPositions = [
   },
 ];
 
-export const Map = ({ currentHole, startQuestion, gameState }) => {
+export const Map = ({ currentHole, startQuestion, gameSetting }) => {
+  const { gameState } = usePlayers();
   const getPlayersPosition = (currentPosition, teepadsArray) => {
     const translateTop =
       teepadsArray[currentPosition].top - teepadsArray[0].top;
@@ -107,7 +109,11 @@ export const Map = ({ currentHole, startQuestion, gameState }) => {
         <img src={map} alt="Course map" className="map" useMap="#image-map" />
 
         <span
-          className="map__teepad"
+          className={`map__meeple ${
+            gameState === "tournament"
+              ? "map__meeple--double"
+              : "map__meeple--single"
+          }`}
           style={getPlayersPosition(currentHole, teepadsPositions)}
         ></span>
       </div>
@@ -121,7 +127,7 @@ export const Map = ({ currentHole, startQuestion, gameState }) => {
             coords={hole.coords}
             shape="poly"
             onClick={() => {
-              startQuestion(!gameState);
+              startQuestion(!gameSetting);
             }}
             className="map__hole-surface"
           />

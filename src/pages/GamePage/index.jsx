@@ -74,7 +74,7 @@ export const GamePage = ({}) => {
           <Map
             currentHole={currentPosition}
             startQuestion={setPlaying}
-            gameState={playing}
+            gameSetting={playing}
           />
         )}
         <ScoreCard />

@@ -4,8 +4,7 @@
   border-radius: 25px 25px 0 0;
 }
 
-.map__teepad {
-  background-image: url("./icon-people.png");
+.map__meeple {
   background-repeat: no-repeat;
   width: 36px;
   height: 36px;
@@ -16,6 +15,14 @@
   left: 488px;
   transition-duration: 4000ms;
   transition-property: transform;
+}
+
+.map__meeple--double {
+  background-image: url("./icon-people.png");
+}
+
+.map__meeple--single {
+  background-image: url("./icon-person.png");
 }
 
 .map__cover {
