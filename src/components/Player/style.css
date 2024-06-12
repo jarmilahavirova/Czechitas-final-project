@@ -39,6 +39,10 @@
   margin-bottom: 10px;
 }
 
+.images:hover {
+  cursor: pointer;
+}
+
 input {
   border-radius: 25px;
   border: 5px solid #d9d9d9;
