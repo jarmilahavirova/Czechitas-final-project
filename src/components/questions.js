@@ -172,7 +172,7 @@ export const questions = [
   {
     id: 12,
     question:
-      "Pokud na hřišti vidím strom označený šipkou, o co se pravděpodobně jedná.",
+      "Pokud na hřišti vidím strom označený šipkou, o co se pravděpodobně jedná?",
     answers: [
       {
         text: "Nejspíš si zde místní hráči značí, jaké jsou zde převládající větry.",
@@ -272,7 +272,7 @@ export const questions = [
       "Disk hráče byl po uplynutí časového limitu prohlášen za ztracený, ale ještě než hráč hodil znovu, se tento ztracený disk povedlo najít. Jaký je postup?",
     answers: [
       {
-        text: "Stejný jakoby byl disk ztracen, jen s tou výjimkou, že s ním může hráč házet.",
+        text: "Stejný, jako kdyby byl disk ztracen, jen s tou výjimkou, že s ním může hráč házet.",
         correct: true,
       },
       {
@@ -289,7 +289,7 @@ export const questions = [
     id: 19,
     question: "Můžu po odhodu z výhoziště přešlápnout?",
     answers: [
-      { text: "Pouze u jamek delších jak 100 metrů.", correct: false },
+      { text: "Pouze u jamek delších než 100 metrů.", correct: false },
       { text: "Ne.", correct: false },
       { text: "Ano.", correct: true },
     ],
@@ -336,7 +336,7 @@ export const questions = [
       "Pokud ředitel turnaje stanovil nějakou oblast jako hazard a můj disk v ní skončil.",
     answers: [
       {
-        text: "Hraju dle pravidel OB, ale s dvěmi trestnými hody.",
+        text: "Hraju dle pravidel OB, ale se dvěma trestnými hody.",
         correct: false,
       },
       {
@@ -351,13 +351,13 @@ export const questions = [
   },
   {
     id: 24,
-    question: "Disk skončil na vrchu koše, co to pro mě znamená.",
+    question: "Disk skončil na vrchu koše, co to pro mě znamená?",
     answers: [
       {
         text: "Zamarkuji pod diskem a musím ještě dohodit poslední hod do koše.",
         correct: true,
       },
-      { text: "Počítá se to jako dokončená jamka, jupí.", correct: false },
+      { text: "Počítá se to jako dokončená jamka, jupí!", correct: false },
       {
         text: "Zamarkuji pod diskem a diskem, který držím v ruce, se dotknu řetězů pro dokončení jamky.",
         correct: false,
@@ -367,7 +367,7 @@ export const questions = [
   {
     id: 25,
     question:
-      "Může se hráč rozhodnout zanechat svůj poslední hodu tak, že to oznámí skupině?",
+      "Může se hráč rozhodnout zanechat svůj poslední hod tak, že to oznámí skupině?",
     answers: [
       { text: "Toto lze pouze v případě ztraceného disku.", correct: false },
       {
@@ -418,7 +418,7 @@ export const questions = [
         correct: true,
       },
       { text: "Ne, hráč se nesmí ničeho dotýkat, jen disku.", correct: false },
-      { text: "Ne, hráč se může opírat pouze o sého caddyho.", correct: false },
+      { text: "Ne, hráč se může opírat pouze o svého caddyho.", correct: false },
     ],
   },
   {
@@ -467,7 +467,7 @@ export const questions = [
         correct: false,
       },
       {
-        text: "Hraje se dle pravidel OB, ale s dvěmi trestnými hody.",
+        text: "Hraje se dle pravidel OB, ale se dvěma trestnými hody.",
         correct: false,
       },
     ],
