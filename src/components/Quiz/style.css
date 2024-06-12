@@ -30,6 +30,16 @@
   margin-right: 25px;
 }
 
+.question__answer--corect {
+  border: 3px solid #115b04;
+  background-color: #115b0482;
+}
+
+.question__answer--wrong {
+  border: 3px solid rgb(197, 0, 0);
+  background-color: rgba(91, 24, 24, 0.445);
+}
+
 .question__buttonBox {
   display: flex;
   justify-content: space-between;
