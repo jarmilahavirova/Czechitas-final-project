@@ -24,6 +24,7 @@ export const Quiz = ({
   const [questionClassName, setQuestionClassName] =
     useState("question__answer");
   const [clickedQuestion, setClickedQuestion] = useState(null);
+  const [skipping, setSkipping] = useState(false);
 
   useEffect(() => {
     setWeatherProbablity(Math.random());
@@ -97,13 +98,15 @@ export const Quiz = ({
   };
 
   const handleSkipButton = () => {
-    // setAmountAnsweredQuestions(amountAnsweredQuestions + 1);
-    // console.log(`Čekujeme počet odpovědí: ${amountAnsweredQuestions}`);
-    // setQuestionFinished(true);
-    // console.log(`Očekávám true: ${questionFinished}`);
-    // updateScore(7);
-    // handleActionButton();
+    setAmountAnsweredQuestions(amountAnsweredQuestions + 1);
+    setSkipping(true);
+    setQuestionFinished(true);
+    updateScore(7);
   };
+
+  useEffect(() => {
+    handleActionButton();
+  }, [skipping]);
 
   return (
     <div className="question">
@@ -129,8 +132,10 @@ export const Quiz = ({
             : questionPlayer2.question}
         </p>
         <div className="question__answersblock">
-        {(currentPlayer === 0 ? questionPlayer1 : questionPlayer2).answers.map(
-          (answer, index) => (
+          {(currentPlayer === 0
+            ? questionPlayer1
+            : questionPlayer2
+          ).answers.map((answer, index) => (
             <p
               className={
                 index === clickedQuestion
@@ -142,9 +147,8 @@ export const Quiz = ({
             >
               {answer.text}
             </p>
-          )
-        )}
-</div>
+          ))}
+        </div>
         <div className="question__buttonBlock">
           <div className="question__button" onClick={handleSkipButton}>
             Přeskočit (zapíšu 7)
