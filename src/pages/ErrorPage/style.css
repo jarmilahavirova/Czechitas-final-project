@@ -1,0 +1,33 @@
+.error {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error__title {
+  font-size: 5rem;
+  margin: 0;
+}
+
+.error__title,
+.error__message {
+  color: #115b04;
+}
+
+.error__picture {
+  max-width: 450px;
+}
+
+.error__button {
+  background-color: #8dbe84;
+  border: 3px solid #115b04;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #115b04;
+  padding: 10px;
+}
+
+.error__button:hover {
+  cursor: pointer;
+}
