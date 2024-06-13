@@ -418,7 +418,10 @@ export const questions = [
         correct: true,
       },
       { text: "Ne, hráč se nesmí ničeho dotýkat, jen disku.", correct: false },
-      { text: "Ne, hráč se může opírat pouze o svého caddyho.", correct: false },
+      {
+        text: "Ne, hráč se může opírat pouze o svého caddyho.",
+        correct: false,
+      },
     ],
   },
   {
@@ -518,7 +521,7 @@ export const questions = [
   },
 ];
 
-const results = [
+export const results = [
   {
     id: 1,
     text: "Výborné skóre, tvá práce v off-season se vyplatila a již nyní při tréninku je vidět, že jsi nezahálel/a. Můžeš si dát ještě jedno tréninkové kolečko nebo vyrazit na turnaj.",

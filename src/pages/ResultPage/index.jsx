@@ -5,8 +5,37 @@ import avatar2 from "../../../assets/avatar2.png";
 import avatar3 from "../../../assets/avatar3.png";
 import avatar4 from "../../../assets/avatar4.png";
 import { Header } from "../../components/Header";
+import { usePlayers } from "../../PlayersContext";
+import { useEffect, useState } from "react";
+import { calculateSum } from "../../utils/calculateSum.js";
+import { Announcement } from "../../components/Announcement/index.jsx";
 
 export const ResultPage = () => {
+  const { players } = usePlayers();
+  const { gameState } = usePlayers();
+  const [scorePlayer0, setScorePlayer0] = useState(0);
+  const [scorePlayer1, setScorePlayer1] = useState(0);
+  const [winner, setWinner] = useState(null);
+
+  useEffect(() => {
+    if (players.length !== 0) {
+      setScorePlayer0(calculateSum(players[0].score));
+      setScorePlayer1(calculateSum(players[1].score));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (gameState === "tournament") {
+      if (scorePlayer0 < scorePlayer1) {
+        setWinner(0);
+      } else if (scorePlayer1 < scorePlayer0) {
+        setWinner(1);
+      } else if (scorePlayer0 === scorePlayer1 && scorePlayer1 > 0) {
+        setWinner("tie");
+      }
+    }
+  }, [scorePlayer0]);
+
   const chosenAvatar = (avatar) => {
     if (avatar === 1) {
       return avatar1;
@@ -19,23 +48,20 @@ export const ResultPage = () => {
     }
   };
 
+  console.log(`Skore z Result Page: ${scorePlayer0}`);
+
   return (
     <>
-      <Header/>
-      <div className="result_container">
-        <div className="announcement_container">
-          <p>Vítězem dnešního turnaje se stává </p>
-          <h2>{"Kirsten"}</h2>
-        </div>
-        <div className="winner_img_container">
-          <img
-            src={chosenAvatar(1)}
-            alt="Hráčův avatar"
-            className="result_avatar"
-          />
-          <img src=""></img>
-        </div>
-        <Link className="btn_play_again" to="/">ZAČÍT HRÁT ZNOVU</Link>
+      <Header />
+      <div className="result__container">
+        <Announcement
+          winner={winner}
+          chosenAvatar={chosenAvatar}
+          scoreSingle={scorePlayer0}
+        />
+        <Link className="result__btn-play-again" to="/">
+          ZAČÍT HRÁT
+        </Link>
       </div>
     </>
   );

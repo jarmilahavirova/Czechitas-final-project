@@ -1,0 +1,25 @@
+.result__announcement-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  border: 5px solid #115b0482;
+  background-color: white;
+  width: 50%;
+  padding: 10px;
+}
+.result__avatar {
+  margin-bottom: 20px;
+  height: 100%;
+}
+
+.result__avatar--flipped {
+  transform: scale(-1, 1);
+}
+
+.result__img-container {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
