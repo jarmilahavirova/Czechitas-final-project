@@ -34,6 +34,10 @@
   cursor: pointer;
 }
 
-.map__hole-surface--active {
-  border: 2px solid red;
+.map__hole-surface--disabled {
+  pointer-events: none;
+}
+
+.map__hole-surface--disabled:hover {
+  cursor: default;
 }
