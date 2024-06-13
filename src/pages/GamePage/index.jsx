@@ -78,14 +78,14 @@ export const GamePage = ({}) => {
           />
         )}
         <ScoreCard />
-        <p
+        {/* <p
           onClick={() => {
             setCurrentPosition(currentPosition + 1);
             setCurrentHole(currentHole + 1);
           }}
         >
           Posun jamky
-        </p>
+        </p> */}
       </div>
       {gameState === "tournament" && (
         <AvatarAside

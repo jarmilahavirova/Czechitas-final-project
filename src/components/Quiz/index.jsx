@@ -128,6 +128,7 @@ export const Quiz = ({
             ? questionPlayer1.question
             : questionPlayer2.question}
         </p>
+        <div className="question__answersblock">
         {(currentPlayer === 0 ? questionPlayer1 : questionPlayer2).answers.map(
           (answer, index) => (
             <p
@@ -143,8 +144,8 @@ export const Quiz = ({
             </p>
           )
         )}
-
-        <div className="question__buttonBox">
+</div>
+        <div className="question__buttonBlock">
           <div className="question__button" onClick={handleSkipButton}>
             Přeskočit (zapíšu 7)
           </div>
