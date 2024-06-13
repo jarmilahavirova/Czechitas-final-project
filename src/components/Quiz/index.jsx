@@ -91,6 +91,7 @@ export const Quiz = ({
 
     if (gameState === "tournament" && amountAnsweredQuestions === 1) {
       setQuestionClassName("question__answer");
+      setQuestionFinished(false);
       if (currentPlayer === 0) {
         setCurrentPlayer(1);
       } else setCurrentPlayer(0);
@@ -137,11 +138,13 @@ export const Quiz = ({
             : questionPlayer2
           ).answers.map((answer, index) => (
             <p
-              className={
-                index === clickedQuestion
-                  ? questionClassName
-                  : "question__answer"
-              }
+              className={`
+                ${
+                  index === clickedQuestion
+                    ? questionClassName
+                    : "question__answer"
+                } ${questionFinished && "question__answer--disabled"}
+              `}
               key={index}
               onClick={() => handleClickedAnswer(answer, index)}
             >
@@ -150,14 +153,35 @@ export const Quiz = ({
           ))}
         </div>
         <div className="question__buttonBlock">
-          <div className="question__button" onClick={handleSkipButton}>
+          <div
+            className={
+              questionFinished
+                ? "question__button question__button--disabled"
+                : "question__button"
+            }
+            onClick={handleSkipButton}
+          >
             Přeskočit (zapíšu 7)
           </div>
           <div
-            className="question__button question__button--action"
+            className={
+              questionFinished
+                ? "question__button question__button--action"
+                : "question__button question__button--disabled question__button--action"
+            }
             onClick={handleActionButton}
           >
-            OK
+            {gameState === "training" && "NA MAPU"}
+            {((gameState === "tournament" &&
+              amountAnsweredQuestions === 1 &&
+              questionFinished === false) ||
+              amountAnsweredQuestions === 2) &&
+              "OK - NA MAPU"}
+            {((gameState === "tournament" && amountAnsweredQuestions === 0) ||
+              (gameState === "tournament" &&
+                amountAnsweredQuestions === 1 &&
+                questionFinished === true)) &&
+              "DALŠÍ HRÁČ"}
           </div>
         </div>
       </div>
