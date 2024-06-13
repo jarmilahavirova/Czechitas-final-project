@@ -4,11 +4,12 @@
   background-size: 65%;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: white;
   border: none;
   outline: none;
   cursor: pointer;
   border-radius: 50%;
-  border-color: #D9D9D9;
+  border-color: #d9d9d9;
   border-style: solid;
   border-width: 5px;
   display: block;
@@ -28,6 +29,6 @@
 }
 .icon_button_container {
   display: flex;
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
 }

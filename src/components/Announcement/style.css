@@ -23,3 +23,15 @@
   justify-content: center;
   gap: 50px;
 }
+
+@media (max-width: 640px) {
+  .result__announcement-container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .result__announcement-container {
+    width: 75%;
+  }
+}
