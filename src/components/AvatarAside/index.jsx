@@ -23,7 +23,7 @@ export const AvatarAside = ({ playerName, avatar, side, isCurrentPlayer }) => {
         <h2
           className={
             isCurrentPlayer
-              ? "avatar__title avatar_title--current"
+              ? "avatar__title avatar__title--current"
               : "avatar__title"
           }
         >

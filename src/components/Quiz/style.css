@@ -28,15 +28,16 @@
   padding: 15px;
   border-radius: 20px;
   margin-right: 25px;
+  border: 3px solid transparent;
 }
 
 .question__answer--corect {
-  border: 3px solid #115b04;
+  border-color: #115b04;
   background-color: #115b0482;
 }
 
 .question__answer--wrong {
-  border: 3px solid rgb(197, 0, 0);
+  border-color: rgb(197, 0, 0);
   background-color: rgba(91, 24, 24, 0.445);
 }
 
