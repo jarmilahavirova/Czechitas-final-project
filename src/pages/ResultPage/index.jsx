@@ -60,7 +60,7 @@ export const ResultPage = () => {
           scoreSingle={scorePlayer0}
         />
         <Link className="result__btn-play-again" to="/">
-          ZAČÍT HRÁT
+          {scorePlayer0 === 0 ? "ZAČÍT HRÁT" : "ZAČÍT HRÁT ZNOVU"}
         </Link>
       </div>
     </>
