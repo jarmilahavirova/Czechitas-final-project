@@ -127,10 +127,11 @@ export const Map = ({ currentHole, startQuestion, gameSetting }) => {
             coords={hole.coords}
             shape="poly"
             onClick={
-              currentHole === hole.id - 1 &&
-              (() => {
-                startQuestion(!gameSetting);
-              })
+              currentHole === hole.id - 1
+                ? () => {
+                    startQuestion(!gameSetting);
+                  }
+                : null
             }
             className={
               currentHole === hole.id - 1
