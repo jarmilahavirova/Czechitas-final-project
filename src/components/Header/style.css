@@ -1,8 +1,19 @@
 .header {
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   gap: 20px;
-  color:#115b04;
+  color: #115b04;
   font-size: large;
+}
+
+@media (max-width: 640px) {
+  .header {
+    width: 100vw;
+    padding: 0 20px;
+  }
+
+  .header__title {
+    font-size: x-large;
+  }
 }
