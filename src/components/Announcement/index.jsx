@@ -60,7 +60,7 @@ export const Announcement = ({
       <>
         <div className="result__announcement-container">
           <p>
-            Vítězem dnešního turnaje se skóre{" "}
+            Vítězem dnešního turnaje se se skóre{" "}
             {winner === 0 ? scorePlayer0 : scorePlayer1} stává{" "}
           </p>
           <h2>{players[winner].playerName}</h2>
