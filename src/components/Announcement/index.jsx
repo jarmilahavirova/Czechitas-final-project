@@ -3,28 +3,32 @@ import { usePlayers } from "../../PlayersContext";
 import { results } from "../../components/questions";
 import { useEffect, useState } from "react";
 
-export const Announcement = ({ winner, chosenAvatar, scoreSingle }) => {
+export const Announcement = ({
+  winner,
+  chosenAvatar,
+  scorePlayer0,
+  scorePlayer1,
+}) => {
   const { players } = usePlayers();
   const { gameState } = usePlayers();
   const [resultId, setResultId] = useState(null);
 
   useEffect(() => {
-    if (scoreSingle > 0 && scoreSingle < 20) {
+    if (scorePlayer0 > 0 && scorePlayer0 < 20) {
       setResultId(0);
-    } else if (scoreSingle >= 20 && scoreSingle < 23) {
+    } else if (scorePlayer0 >= 20 && scorePlayer0 < 23) {
       setResultId(1);
-    } else if (scoreSingle >= 23 && scoreSingle < 27) {
+    } else if (scorePlayer0 >= 23 && scorePlayer0 < 27) {
       setResultId(2);
-    } else if (scoreSingle >= 27) {
+    } else if (scorePlayer0 >= 27) {
       setResultId(3);
     }
-  }, [scoreSingle]);
+  }, [scorePlayer0]);
 
   if (gameState === "training" && resultId !== null) {
-    console.log(`Skóre Single Playera: ${scoreSingle}`);
-    console.log(`Výsledek ID: ${resultId}`);
     return (
       <div className="result__announcement-container">
+        <h2>Tvé dnešní skóre je {scorePlayer0}</h2>
         <p>{results[resultId].text} </p>
       </div>
     );
@@ -34,7 +38,7 @@ export const Announcement = ({ winner, chosenAvatar, scoreSingle }) => {
     return (
       <>
         <div className="result__announcement-container">
-          <p>Dnešní turnaj skončil nerozhodně. </p>
+          <p>Dnešní turnaj skončil nerozhodně, se skóre {scorePlayer0}. </p>
           <h2>Gratulujeme vám oboum!</h2>
         </div>
         <div className="result__img-container">
@@ -55,7 +59,10 @@ export const Announcement = ({ winner, chosenAvatar, scoreSingle }) => {
     return (
       <>
         <div className="result__announcement-container">
-          <p>Vítězem dnešního turnaje se stává </p>
+          <p>
+            Vítězem dnešního turnaje se skóre{" "}
+            {winner === 0 ? scorePlayer0 : scorePlayer1} stává{" "}
+          </p>
           <h2>{players[winner].playerName}</h2>
         </div>
         <div className="result__img-container">

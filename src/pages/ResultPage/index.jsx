@@ -57,7 +57,8 @@ export const ResultPage = () => {
         <Announcement
           winner={winner}
           chosenAvatar={chosenAvatar}
-          scoreSingle={scorePlayer0}
+          scorePlayer0={scorePlayer0}
+          scorePlayer1={scorePlayer1}
         />
         <Link className="result__btn-play-again" to="/">
           {scorePlayer0 === 0 ? "ZAČÍT HRÁT" : "ZAČÍT HRÁT ZNOVU"}
