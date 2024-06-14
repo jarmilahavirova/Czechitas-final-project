@@ -48,8 +48,6 @@ export const ResultPage = () => {
     }
   };
 
-  console.log(`Skore z Result Page: ${scorePlayer0}`);
-
   return (
     <>
       <Header />

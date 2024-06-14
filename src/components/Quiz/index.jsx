@@ -41,14 +41,6 @@ export const Quiz = ({
     }
   }, []);
 
-  // useEffect(() => {
-  //   if (gameState === "tournament") {
-  //     setChosenQuestions(getRandomizeQuestions(questions, 18));
-  //   } else if (gameState === "training") {
-  //     setChosenQuestions(getRandomizeQuestions(questions, 9));
-  //   }
-  // }, []);
-
   const updateScore = (newScore) => {
     const updatedPlayers = [...players];
     updatedPlayers[currentPlayer].score[currentHole] = newScore;
@@ -188,12 +180,12 @@ export const Quiz = ({
             }
             onClick={handleActionButton}
           >
-            {gameState === "training" && "ODEHRÁNO"}
+            {gameState === "training" && "DALŠÍ JAMKA"}
             {((gameState === "tournament" &&
               amountAnsweredQuestions === 1 &&
               questionFinished === false) ||
               amountAnsweredQuestions === 2) &&
-              "ODEHRÁNO"}
+              "DALŠÍ JAMKA"}
             {((gameState === "tournament" && amountAnsweredQuestions === 0) ||
               (gameState === "tournament" &&
                 amountAnsweredQuestions === 1 &&
