@@ -5,9 +5,14 @@ export const IconButton = ({ text, icon, selected, onClick, type, link }) => {
   return (
     <div className="icon_button_container">
       {type === "link" ? (
-        <Link className={
-          selected ? "icon_button icon_button--selected" : "icon_button"
-        } to={link} style={{ backgroundImage: `url(${icon})` }}></Link>
+        <Link
+          className={
+            selected ? "icon_button icon_button--selected" : "icon_button"
+          }
+          to={link}
+          style={{ backgroundImage: `url(${icon})` }}
+          target={link === "/about" && "_blank"}
+        ></Link>
       ) : (
         <button
           onClick={onClick}
