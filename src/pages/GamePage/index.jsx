@@ -57,27 +57,29 @@ export const GamePage = ({}) => {
         />
       )}
       <div className="game__middle-section">
-        <Header />
-        {(gameState === "training" || gameState === "tournament") && (
-          <div className="game__avatar-block">
-            <Avatar
-              playerName={players[0].playerName}
-              avatar={players[0].playerAvatar}
-              side={"right"}
-              isCurrentPlayer={currentPlayer === 0 && true}
-              location="top"
-            />
-            {gameState === "tournament" && (
+        <div className="game__header-section">
+          <Header />
+          {(gameState === "training" || gameState === "tournament") && (
+            <div className="game__avatar-block">
               <Avatar
-                playerName={players[1].playerName}
-                avatar={players[1].playerAvatar}
-                side={"left"}
-                isCurrentPlayer={currentPlayer === 1 && true}
+                playerName={players[0].playerName}
+                avatar={players[0].playerAvatar}
+                side={"right"}
+                isCurrentPlayer={currentPlayer === 0 && true}
                 location="top"
               />
-            )}
-          </div>
-        )}
+              {gameState === "tournament" && (
+                <Avatar
+                  playerName={players[1].playerName}
+                  avatar={players[1].playerAvatar}
+                  side={"left"}
+                  isCurrentPlayer={currentPlayer === 1 && true}
+                  location="top"
+                />
+              )}
+            </div>
+          )}
+        </div>
         {playing ? (
           <Quiz
             currentHole={currentHole}
@@ -97,7 +99,9 @@ export const GamePage = ({}) => {
             gameSetting={playing}
           />
         )}
-        <ScoreCard />
+        <div className="game__scorecard--section">
+          <ScoreCard />
+        </div>
         {/* <p
           onClick={() => {
             setCurrentPosition(currentPosition + 1);

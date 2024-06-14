@@ -21,3 +21,22 @@
     display: none;
   }
 }
+
+@media (max-width: 640px) {
+  .game__middle-section {
+    position: relative;
+  }
+
+  .game__header-section {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: rgb(233, 233, 233);
+    border-bottom: 2px solid white;
+  }
+
+  .game__scorecard--section {
+    position: sticky;
+    bottom: 0;
+  }
+}

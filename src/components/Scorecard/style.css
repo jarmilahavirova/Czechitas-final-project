@@ -13,15 +13,27 @@
 
 td,
 th {
-  border: 2px solid black;
+  border: 2px solid rgb(56, 56, 56);
   max-width: 50px;
   height: 40px;
 }
 
 thead > tr {
-  background-color: #115b0482;
+  background-color: #86ab7f;
 }
 
 tbody {
   background-color: white;
+}
+
+@media (max-width: 640px) {
+  .scorecard {
+    width: 100vw;
+    font-size: smaller;
+  }
+
+  td,
+  th {
+    height: 30px;
+  }
 }
