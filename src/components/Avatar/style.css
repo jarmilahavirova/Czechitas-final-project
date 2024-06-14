@@ -8,6 +8,7 @@
 
 .avatar--top {
   height: 120px;
+  flex-direction: column-reverse;
 }
 
 .avatar__title {

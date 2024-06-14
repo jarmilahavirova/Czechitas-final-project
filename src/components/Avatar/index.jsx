@@ -45,18 +45,6 @@ export const Avatar = ({
         location === "aside" ? "avatar--aside" : "avatar--top"
       }`}
     >
-      {location === "top" && (
-        <img
-          src={chosenHead(avatar)}
-          alt="Hráčův avatar"
-          className={
-            side === "right"
-              ? "avatar__image avatar__image--right"
-              : "avatar__image"
-          }
-        />
-      )}
-
       {playerName && (
         <h2
           className={
@@ -68,17 +56,15 @@ export const Avatar = ({
           {playerName}
         </h2>
       )}
-      {location === "aside" && (
-        <img
-          src={chosenAvatar(avatar)}
-          alt="Hráčův avatar"
-          className={
-            side === "right"
-              ? "avatar__image avatar__image--right"
-              : "avatar__image"
-          }
-        />
-      )}
+      <img
+        src={location === "aside" ? chosenAvatar(avatar) : chosenHead(avatar)}
+        alt="Hráčův avatar"
+        className={
+          side === "right"
+            ? "avatar__image avatar__image--right"
+            : "avatar__image"
+        }
+      />
     </aside>
   );
 };
