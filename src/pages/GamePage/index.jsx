@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AvatarAside } from "../../components/AvatarAside";
+import { Avatar } from "../../components/Avatar";
 import { Header } from "../../components/Header";
 import { Map } from "../../components/Map";
 import { Quiz } from "../../components/Quiz";
@@ -17,7 +17,6 @@ export const GamePage = ({}) => {
   const [currentHole, setCurrentHole] = useState(0);
   const [chosenQuestions, setChosenQuestions] = useState(0);
   const [currentPlayer, setCurrentPlayer] = useState(0);
-  const [scores, setScores] = useState([]);
 
   const navigate = useNavigate();
 
@@ -49,15 +48,36 @@ export const GamePage = ({}) => {
   return (
     <main className="game">
       {(gameState === "training" || gameState === "tournament") && (
-        <AvatarAside
+        <Avatar
           playerName={players[0].playerName}
           avatar={players[0].playerAvatar}
           side={"left"}
           isCurrentPlayer={currentPlayer === 0 && true}
+          location="aside"
         />
       )}
       <div className="game__middle-section">
         <Header />
+        {(gameState === "training" || gameState === "tournament") && (
+          <div className="game__avatar-block">
+            <Avatar
+              playerName={players[0].playerName}
+              avatar={players[0].playerAvatar}
+              side={"right"}
+              isCurrentPlayer={currentPlayer === 0 && true}
+              location="top"
+            />
+            {gameState === "tournament" && (
+              <Avatar
+                playerName={players[1].playerName}
+                avatar={players[1].playerAvatar}
+                side={"left"}
+                isCurrentPlayer={currentPlayer === 1 && true}
+                location="top"
+              />
+            )}
+          </div>
+        )}
         {playing ? (
           <Quiz
             currentHole={currentHole}
@@ -88,11 +108,12 @@ export const GamePage = ({}) => {
         </p> */}
       </div>
       {gameState === "tournament" && (
-        <AvatarAside
+        <Avatar
           playerName={players[1].playerName}
           avatar={players[1].playerAvatar}
           side={"right"}
           isCurrentPlayer={currentPlayer === 1 && true}
+          location="aside"
         />
       )}
     </main>
