@@ -18,18 +18,36 @@ export const Quiz = ({
   const navigate = useNavigate();
 
   const [weatherProbability, setWeatherProbablity] = useState(0);
+  const [answersPlayer1, setAnswersPlayer1] = useState([]);
+  const [answersPlayer2, setAnswersPlayer2] = useState([]);
   const [amountAnsweredQuestions, setAmountAnsweredQuestions] = useState(0);
   const [questionFinished, setQuestionFinished] = useState(false);
-  const [holeFinished, setHoleFinished] = useState(false);
   const [questionClassName, setQuestionClassName] =
     useState("question__answer");
   const [clickedQuestion, setClickedQuestion] = useState(null);
   const [skipping, setSkipping] = useState(false);
 
+  const getRandomizeAnswers = (answers, numberAnswers) => {
+    const shuffledAnswers = answers.sort(() => Math.random() - 0.5);
+    return shuffledAnswers.slice(0, numberAnswers);
+  };
+
   useEffect(() => {
     setWeatherProbablity(Math.random());
     setAmountAnsweredQuestions(0);
+    setAnswersPlayer1(getRandomizeAnswers(questionPlayer1.answers));
+    if (gameState === "tournament") {
+      setAnswersPlayer2(getRandomizeAnswers(questionPlayer2.answers));
+    }
   }, []);
+
+  // useEffect(() => {
+  //   if (gameState === "tournament") {
+  //     setChosenQuestions(getRandomizeQuestions(questions, 18));
+  //   } else if (gameState === "training") {
+  //     setChosenQuestions(getRandomizeQuestions(questions, 9));
+  //   }
+  // }, []);
 
   const updateScore = (newScore) => {
     const updatedPlayers = [...players];
@@ -133,24 +151,23 @@ export const Quiz = ({
             : questionPlayer2.question}
         </p>
         <div className="question__answersblock">
-          {(currentPlayer === 0
-            ? questionPlayer1
-            : questionPlayer2
-          ).answers.map((answer, index) => (
-            <p
-              className={`
+          {(currentPlayer === 0 ? answersPlayer1 : answersPlayer2).map(
+            (answer, index) => (
+              <p
+                className={`
                 ${
                   index === clickedQuestion
                     ? questionClassName
                     : "question__answer"
                 } ${questionFinished && "question__answer--disabled"}
               `}
-              key={index}
-              onClick={() => handleClickedAnswer(answer, index)}
-            >
-              {answer.text}
-            </p>
-          ))}
+                key={index}
+                onClick={() => handleClickedAnswer(answer, index)}
+              >
+                {answer.text}
+              </p>
+            )
+          )}
         </div>
         <div className="question__buttonBlock">
           <div
@@ -171,12 +188,12 @@ export const Quiz = ({
             }
             onClick={handleActionButton}
           >
-            {gameState === "training" && "NA MAPU"}
+            {gameState === "training" && "ODEHRÁNO"}
             {((gameState === "tournament" &&
               amountAnsweredQuestions === 1 &&
               questionFinished === false) ||
               amountAnsweredQuestions === 2) &&
-              "OK - NA MAPU"}
+              "ODEHRÁNO"}
             {((gameState === "tournament" && amountAnsweredQuestions === 0) ||
               (gameState === "tournament" &&
                 amountAnsweredQuestions === 1 &&
