@@ -15,6 +15,7 @@
   left: 488px;
   transition-duration: 4000ms;
   transition-property: transform;
+  z-index: 2;
 }
 
 .map__meeple--double {
