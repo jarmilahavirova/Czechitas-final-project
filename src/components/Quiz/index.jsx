@@ -180,17 +180,27 @@ export const Quiz = ({
             }
             onClick={handleActionButton}
           >
-            {gameState === "training" && "DALŠÍ JAMKA"}
+            {gameState === "training" && currentHole < 8 && "DALŠÍ JAMKA"}
+
             {((gameState === "tournament" &&
               amountAnsweredQuestions === 1 &&
-              questionFinished === false) ||
-              amountAnsweredQuestions === 2) &&
+              questionFinished === false &&
+              currentHole < 8) ||
+              (amountAnsweredQuestions === 2 && currentHole < 8)) &&
               "DALŠÍ JAMKA"}
             {((gameState === "tournament" && amountAnsweredQuestions === 0) ||
               (gameState === "tournament" &&
                 amountAnsweredQuestions === 1 &&
                 questionFinished === true)) &&
               "DALŠÍ HRÁČ"}
+
+            {((gameState === "training" && currentHole === 8) ||
+              (gameState === "tournament" &&
+                amountAnsweredQuestions === 1 &&
+                questionFinished === false &&
+                currentHole === 8) ||
+              (amountAnsweredQuestions === 2 && currentHole === 8)) &&
+              "NA VÝSLEDKY"}
           </div>
         </div>
       </div>

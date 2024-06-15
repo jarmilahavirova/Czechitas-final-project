@@ -72,3 +72,19 @@
 .question__button--action {
   background-color: #115b0482;
 }
+
+@media (max-width: 640px) {
+  .question {
+    flex-direction: column;
+    width: 100vw;
+  }
+
+  .question__teesign {
+    display: none;
+  }
+
+  .question__infoside {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
