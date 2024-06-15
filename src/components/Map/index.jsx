@@ -211,7 +211,6 @@ export const Map = ({ currentHole, startQuestion, gameSetting }) => {
                 : "map__meeple--single"
             }`}
             style={getPlayersPosition(currentHole, teepadsPositions)}
-            ref={reference}
           ></span>
         </div>
 
@@ -256,6 +255,7 @@ export const Map = ({ currentHole, startQuestion, gameSetting }) => {
                 : "map__meeple--single"
             }`}
             style={getPlayersPosition(currentHole, teepadsPositionsMobile)}
+            ref={reference}
           ></span>
         </div>
 
