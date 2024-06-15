@@ -15,15 +15,14 @@
   left: 488px;
   transition-duration: 4000ms;
   transition-property: transform;
-  z-index: 2;
 }
 
 .map__meeple--double {
-  background-image: url("./icon-people.png");
+  background-image: url("../../../assets/icon-people.png");
 }
 
 .map__meeple--single {
-  background-image: url("./icon-person.png");
+  background-image: url("../../../assets/icon-people.png");
 }
 
 .map__cover {
