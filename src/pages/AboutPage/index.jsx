@@ -95,6 +95,8 @@ export const AboutPage = () => {
           </p>
         </section>
 
+        <IconButton type="link" link="/" selected icon="./icon-disgolf.png" />
+
         <section className="about__section">
           <h2 className="about__title">O NÁS</h2>
           <p>
