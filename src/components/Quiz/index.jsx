@@ -151,7 +151,7 @@ export const Quiz = ({
                   index === clickedQuestion
                     ? questionClassName
                     : "question__answer"
-                } ${questionFinished && "question__answer--disabled"}
+                } ${questionFinished && "question__answer--disabled"} ${questionFinished && answer.correct===true && "question__answer--expected"}
               `}
                 key={index}
                 onClick={() => handleClickedAnswer(answer, index)}
