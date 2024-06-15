@@ -1,6 +1,8 @@
 import "./style.css";
 import map from "../../../assets/map.jpg";
+import mapMobile from "../../../assets/map_mobile.jpg";
 import { usePlayers } from "../../PlayersContext";
+import { useEffect, useRef } from "react";
 
 const holesMap = [
   {
@@ -39,6 +41,45 @@ const holesMap = [
   {
     id: 9,
     coords: "593,75,587,82,739,207,750,205,758,194,751,182",
+  },
+];
+
+const holesMapMobile = [
+  {
+    id: 1,
+    coords: "23,144,39,144,75,293,106,342,68,365,34,247",
+  },
+  {
+    id: 2,
+    coords: "43,588,53,595,130,412,151,248,149,223,123,223,104,386",
+  },
+  {
+    id: 3,
+    coords: "162,240,176,238,192,326,181,370,158,399,140,379,156,331",
+  },
+  {
+    id: 4,
+    coords: "222,373,243,373,242,186,282,49,284,21,265,15,222,120,217,195",
+  },
+  {
+    id: 5,
+    coords: "274,155,291,155,296,313,287,393,254,382",
+  },
+  {
+    id: 6,
+    coords: "235,488,257,505,219,629,215,750,193,820,161,807,180,712,187,626",
+  },
+  {
+    id: 7,
+    coords: "188,836,210,838,220,949,214,988,193,991,184,925",
+  },
+  {
+    id: 8,
+    coords: "165,1015,183,1015,198,1114,192,1189,163,1191",
+  },
+  {
+    id: 9,
+    coords: "129,1159,147,1154,128,932,91,786,45,774,39,807,64,816",
   },
 ];
 
@@ -90,8 +131,58 @@ const teepadsPositions = [
   },
 ];
 
+const teepadsPositionsMobile = [
+  {
+    id: 1,
+    top: 137,
+    left: 16,
+  },
+  {
+    id: 2,
+    top: 568,
+    left: 33,
+  },
+  {
+    id: 3,
+    top: 232,
+    left: 152,
+  },
+  {
+    id: 4,
+    top: 346,
+    left: 213,
+  },
+  {
+    id: 5,
+    top: 147,
+    left: 264,
+  },
+  {
+    id: 6,
+    top: 491,
+    left: 222,
+  },
+  {
+    id: 7,
+    top: 827,
+    left: 182,
+  },
+  {
+    id: 8,
+    top: 1006,
+    left: 156,
+  },
+  {
+    id: 9,
+    top: 1128,
+    left: 118,
+  },
+];
+
 export const Map = ({ currentHole, startQuestion, gameSetting }) => {
   const { gameState } = usePlayers();
+  const reference = useRef(null);
+
   const getPlayersPosition = (currentPosition, teepadsArray) => {
     const translateTop =
       teepadsArray[currentPosition].top - teepadsArray[0].top;
@@ -103,44 +194,95 @@ export const Map = ({ currentHole, startQuestion, gameSetting }) => {
     };
   };
 
+  useEffect(() => {
+    reference.current.focus();
+  }, []);
+
   return (
     <>
-      <div className="map__cover">
-        <img src={map} alt="Course map" className="map" useMap="#image-map" />
+      <div className="map__block map__block--desktop">
+        <div className="map__cover">
+          <img src={map} alt="Course map" className="map" useMap="#image-map" />
 
-        <span
-          className={`map__meeple ${
-            gameState === "tournament"
-              ? "map__meeple--double"
-              : "map__meeple--single"
-          }`}
-          style={getPlayersPosition(currentHole, teepadsPositions)}
-        ></span>
+          <span
+            className={`map__meeple ${
+              gameState === "tournament"
+                ? "map__meeple--double"
+                : "map__meeple--single"
+            }`}
+            style={getPlayersPosition(currentHole, teepadsPositions)}
+            ref={reference}
+          ></span>
+        </div>
+
+        <map name="image-map">
+          {holesMap.map((hole) => (
+            <area
+              key={hole.id}
+              alt={`Plocha jamky č. ${hole.id}`}
+              title={`Hole ${hole.id}`}
+              coords={hole.coords}
+              shape="poly"
+              onClick={
+                currentHole === hole.id - 1
+                  ? () => {
+                      startQuestion(!gameSetting);
+                    }
+                  : null
+              }
+              className={
+                currentHole === hole.id - 1
+                  ? "map__hole-surface"
+                  : "map__hole-surface map__hole-surface--disabled"
+              }
+            />
+          ))}
+        </map>
       </div>
 
-      <map name="image-map">
-        {holesMap.map((hole) => (
-          <area
-            key={hole.id}
-            alt={`Plocha jamky č. ${hole.id}`}
-            title={`Hole ${hole.id}`}
-            coords={hole.coords}
-            shape="poly"
-            onClick={
-              currentHole === hole.id - 1
-                ? () => {
-                    startQuestion(!gameSetting);
-                  }
-                : null
-            }
-            className={
-              currentHole === hole.id - 1
-                ? "map__hole-surface"
-                : "map__hole-surface map__hole-surface--disabled"
-            }
+      <div className="map__block map__block--mobile">
+        <div className="map__cover">
+          <img
+            src={mapMobile}
+            alt="Course map"
+            className="map"
+            useMap="#image-mapMobile"
           />
-        ))}
-      </map>
+
+          <span
+            className={`map__meeple ${
+              gameState === "tournament"
+                ? "map__meeple--double"
+                : "map__meeple--single"
+            }`}
+            style={getPlayersPosition(currentHole, teepadsPositionsMobile)}
+          ></span>
+        </div>
+
+        <map name="image-mapMobile">
+          {holesMapMobile.map((hole) => (
+            <area
+              key={hole.id}
+              alt={`Plocha jamky č. ${hole.id}`}
+              title={`Hole ${hole.id}`}
+              coords={hole.coords}
+              shape="poly"
+              onClick={
+                currentHole === hole.id - 1
+                  ? () => {
+                      startQuestion(!gameSetting);
+                    }
+                  : null
+              }
+              className={
+                currentHole === hole.id - 1
+                  ? "map__hole-surface"
+                  : "map__hole-surface map__hole-surface--disabled"
+              }
+            />
+          ))}
+        </map>
+      </div>
     </>
   );
 };

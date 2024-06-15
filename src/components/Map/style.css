@@ -41,3 +41,20 @@
 .map__hole-surface--disabled:hover {
   cursor: default;
 }
+
+@media (max-width: 640px) {
+  .map__block--desktop {
+    display: none;
+  }
+
+  .map__meeple {
+    top: 137px;
+    left: 16px;
+  }
+}
+
+@media (min-width: 640px) {
+  .map__block--mobile {
+    display: none;
+  }
+}
