@@ -540,40 +540,40 @@ export const results = [
   },
 ];
 
-const links = [
+export const links = [
   {
     icon: "Disc Golf Basket",
-    link: '<a href="https://www.flaticon.com/free-icons/disc-golf" title="disc golf icons">Disc golf icons created by Freepik - Flaticon</a>',
+    link: "https://www.flaticon.com/free-icons/disc-golf",
     author: "Freepik",
   },
   {
     icon: "Home",
-    link: '<a href="https://www.flaticon.com/free-icons/home-button" title="home button icons">Home button icons created by Freepik - Flaticon</a>',
+    link: "https://www.flaticon.com/free-icons/home-button",
     author: "Freepik",
   },
   {
     icon: "Windy",
-    link: '<a href="https://www.flaticon.com/free-icons/wind-speed" title="wind speed icons">Wind speed icons created by Nendra Wahyu  - Flaticon</a>',
+    link: "https://www.flaticon.com/free-icons/wind-speed",
     author: "Nendra Wahyu",
   },
   {
     icon: "Info",
-    link: '<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Chanut - Flaticon</a>',
+    link: "https://www.flaticon.com/free-icons/info",
     author: "Chanut",
   },
   {
     icon: "Person",
-    link: '<a href="https://www.flaticon.com/free-icons/alone" title="alone icons">Alone icons created by AbtoCreative - Flaticon</a>',
+    link: "https://www.flaticon.com/free-icons/alone",
     author: "Abto Creative",
   },
   {
     icon: "People",
-    link: '<a href="https://www.flaticon.com/free-icons/two-players" title="two players icons">Two players icons created by AbtoCreative - Flaticon</a>',
+    link: "https://www.flaticon.com/free-icons/two-players",
     author: "Abto Creative",
   },
   {
     icon: "Sun",
-    link: '<a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Sun icons created by Pronicon - Flaticon</a>',
+    link: "https://www.flaticon.com/free-icons/sun",
     author: "Pronicon",
   },
 ];
