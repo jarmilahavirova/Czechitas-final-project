@@ -35,5 +35,6 @@ tbody {
   td,
   th {
     height: 30px;
+    border-width: 0.5px;
   }
 }
