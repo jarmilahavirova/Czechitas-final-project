@@ -576,4 +576,42 @@ export const links = [
     link: "https://www.flaticon.com/free-icons/sun",
     author: "Pronicon",
   },
+  {
+    icon: "Arrow right",
+    link: "https://www.flaticon.com/free-icons/arrows",
+    author: "graphikians",
+  },
+];
+
+export const instructions = [
+  {
+    id: 1,
+    image: "instruction1",
+    text: "Svou hru začněte na úvodní stránce, kde navolíte, zda chcete hrát sami nebo s kamarádem. Vyplňte své jméno, vyberte avatar a můžete začít hrát.",
+  },
+  {
+    id: 2,
+    image: "instruction2",
+    text: "Nyní už je před vámi samotná hra, připravená tak, jak jste si ji navolili. Začínáme na jamce jedna a postupně procházíme celé hřiště. Aktuální jamku vám prozradí skórkarta i panáčci na mapě. Kvíz pro danou jamku spustíte kliknutím na jamku na mapě.",
+  },
+  {
+    id: 3,
+    image: "instruction3",
+    text: "Hra funguje jako vědomostní hra na téma pravidla discgolfu. Po kliknutí na odpověď se hned dozvíte výsledky a může pokračovat další hráč. Dávejte však POZOR na to, kdo je zrovna na řadě, hra respektuje pořadí dle discgolfových pravidel.",
+  },
+  {
+    id: 4,
+    image: "instruction4",
+    text: "Ve hře je zahrnut mimo jiné i prvek náhody v podobě změny počasí a stejně jako se může stát, že vám hod zkomplikuje náhlý poryv větru, může se i zde objevit vítr, který ovlivní vaše skóre na dané jamce.",
+  },
+  {
+    id: 5,
+    image: "instruction5",
+    text: "Postupujte takto jamku po jamce až k té deváté, po které se dozvíte, jak vaše hra skončila - jaké máte skóre nebo kdo vyhrál.",
+  },
+  {
+    id: 6,
+    image: "instruction6",
+    text: "Nyní již víte vše, co k hraní potřebujete, můžete tedy rovnou začít klikem na discgolfový koš níže.",
+  },
 ];

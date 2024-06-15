@@ -7,7 +7,7 @@ import { ScoreCard } from "../../components/Scorecard";
 import { usePlayers } from "../../PlayersContext";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { questions } from "../../components/questions";
+import { questions } from "../../components/source";
 
 export const GamePage = ({}) => {
   const { players, setPlayers } = usePlayers();

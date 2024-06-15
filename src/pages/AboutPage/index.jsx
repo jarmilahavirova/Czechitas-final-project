@@ -1,9 +1,34 @@
+import { useState } from "react";
 import { Header } from "../../components/Header";
 import { IconButton } from "../../components/IconButton";
-import { links } from "../../components/questions";
+import { links, instructions } from "../../components/source";
+import instruction1 from "../../../assets/instruction1.jpg";
+import instruction2 from "../../../assets/instruction2.jpg";
+import instruction3 from "../../../assets/instruction3.jpg";
+import instruction4 from "../../../assets/instruction4.jpg";
+import instruction5 from "../../../assets/instruction5.jpg";
+import instruction6 from "../../../assets/instruction6.jpg";
 import "./style.css";
 
 export const AboutPage = () => {
+  const [instruction, setInstruction] = useState(0);
+
+  const revealedInstruction = (instruction) => {
+    if (instruction === 0) {
+      return instruction1;
+    } else if (instruction === 1) {
+      return instruction2;
+    } else if (instruction === 2) {
+      return instruction3;
+    } else if (instruction === 3) {
+      return instruction4;
+    } else if (instruction === 4) {
+      return instruction5;
+    } else if (instruction === 5) {
+      return instruction6;
+    }
+  };
+
   return (
     <>
       <Header />
@@ -38,39 +63,40 @@ export const AboutPage = () => {
 
         <section className="about__section">
           <h2 className="about__title">JAK HRÁT RULES OPEN 2024</h2>
-          <p>
-            Svou hru začněte na úvodní stránce, kde navolíte, zda chcete hrát
-            sami nebo s kamarádem. Vyplňte své jméno, vyberte avatar a můžete
-            začít hrát.
-          </p>
-          {/* obrázek */}
-          <p>
-            Nyní už je před vámi samotná hra, připravená tak, jak jste si ji
-            navolili. Začínáme na jamce jedna a postupně procházíme celé hřiště.
-            Aktuální jamku vám prozradí skórkarta i panáčci na mapě. Kvíz pro
-            danou jamku spustíte kliknutím na jamku na mapě.
-          </p>
-          {/* obrázek */}
-          <p>
-            Hra funguje jako vědomostní hra na téma pravidla discgolfu. Po
-            kliknutí na odpověď se hned dozvíte výsledky a může pokračovat další
-            hráč. Dávejte však POZOR na to, kdo je zrovna na řadě, hra
-            respektuje pořadí dle discgolfových pravidel.
-          </p>
-          <p>
-            Ve hře je zahrnut mimo jiné i prvek náhody v podobě změny počasí a
-            stejně jako se může stát, že vám hod zkomplikuje náhlý poryv větru,
-            může se i zde objevit vítr, který ovlivní vaše skóre na dané jamce.
-          </p>
-          {/* obrázek */}
-          <p>
-            Postupujte takto jamku po jamce až k té deváté, po které se dozvíte,
-            jak vaše hra skončila - jaké máte skóre nebo kdo vyhrál.
-          </p>
-          <p>
-            Nyní již víte vše, co k hraní potřebujete, můžete tedy rovnou začít
-            klikem na discgolfový koš níže.
-          </p>
+          <div className="about__instructions">
+            <img
+              src="./icon-arrow-right.png"
+              alt="Předchozí"
+              className={`about__arrow about__arrow--left ${
+                instruction === 0 ? "about__arrow--disabled" : null
+              }`}
+              onClick={() => {
+                setInstruction(instruction - 1);
+              }}
+            />
+            <div className="about__instruction">
+              <img
+                src={revealedInstruction(instruction)}
+                alt={`Ilustrační obrázek instrukcí č. ${instruction + 1}`}
+                className="about__instruction-image"
+              />
+              <p className="about__instruction-text">
+                {instructions[instruction].text}
+              </p>
+            </div>
+            <img
+              src="./icon-arrow-right.png"
+              alt="Následující"
+              className={`about__arrow ${
+                instruction === instructions.length - 1
+                  ? "about__arrow--disabled"
+                  : null
+              }`}
+              onClick={() => {
+                setInstruction(instruction + 1);
+              }}
+            />
+          </div>
         </section>
 
         <IconButton type="link" link="/" selected icon="./icon-disgolf.png" />

@@ -1,6 +1,6 @@
 import "./style.css";
 import { usePlayers } from "../../PlayersContext";
-import { results } from "../../components/questions";
+import { results } from "../source";
 import { useEffect, useState } from "react";
 
 export const Announcement = ({

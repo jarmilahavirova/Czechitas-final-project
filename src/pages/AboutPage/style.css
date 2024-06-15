@@ -1,5 +1,5 @@
 .about {
-  width: 50%;
+  width: 70%;
   background-color: white;
   margin: 0 auto 25px auto;
   padding: 25px;
@@ -12,14 +12,73 @@
   color: #115b04;
 }
 
+.about h2 {
+  color: #115b04;
+}
+
+.about__instructions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.about__instruction {
+  border: 3px solid #d9d9d9;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+
+.about__instruction-image {
+  max-width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+.about__instruction-text {
+  min-height: 100px;
+  padding: 10px;
+}
+
+.about__arrow {
+  width: 60px;
+  height: 60px;
+}
+
+.about__arrow--left {
+  transform: scale(-1, 1);
+}
+
+.about__arrow--disabled {
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+
 @media (max-width: 640px) {
   .about {
     width: 100%;
+  }
+
+  .about__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .about__instruction-text {
+    min-height: 300px;
   }
 }
 
 @media (min-width: 640px) and (max-width: 1024px) {
   .about {
-    width: 75%;
+    width: 85%;
+  }
+
+  .about__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .about__instruction-text {
+    min-height: 150px;
   }
 }
