@@ -88,7 +88,16 @@
     justify-content: space-between;
   }
 
-  .question__answer {
-    margin-left: 25px;
+  .question__textside {
+    margin: 0 25px;
+  }
+
+  .question__buttonBlock {
+    gap: 25px;
+  }
+
+  .question__answer,
+  .question__button {
+    margin-right: 0px;
   }
 }
