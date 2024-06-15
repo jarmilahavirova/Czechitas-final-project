@@ -87,4 +87,8 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
+  .question__answer {
+    margin-left: 25px;
+  }
 }
