@@ -45,6 +45,10 @@ export const GamePage = ({}) => {
     }
   }, []);
 
+  if (players.length === 0) {
+    return null;
+  }
+
   return (
     <main className="game">
       {(gameState === "training" || gameState === "tournament") && (
