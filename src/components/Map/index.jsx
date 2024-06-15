@@ -196,7 +196,7 @@ export const Map = ({ currentHole, startQuestion, gameSetting }) => {
 
   useEffect(() => {
     reference.current.focus();
-  }, []);
+  }, [currentPosition]);
 
   return (
     <>
