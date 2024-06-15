@@ -1,5 +1,5 @@
 .about {
-  width: 75%;
+  width: 50%;
   background-color: white;
   margin: 0 auto 25px auto;
   padding: 25px;
@@ -15,5 +15,11 @@
 @media (max-width: 640px) {
   .about {
     width: 100%;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .about {
+    width: 75%;
   }
 }
