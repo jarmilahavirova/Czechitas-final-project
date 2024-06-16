@@ -14,9 +14,13 @@ We wanted the interface to remind users of disc golf environment, so we used ele
 
 To enhance user comfort, players of our game set their names on the HomePage, as well as choosing their avatars. This setting accompanies them throughout the entire game - on the GamePage, on the scorecard, and also on the ResultPage. The entire game is possible to play in both single and double mode.
 
+![HomePage with different possibilities of setting](/assets/instruction1.jpg)
+
 **3. Interactive map**
 
 The main feature of GamePage is an interactive clickable map that responds to the value of the current hole. Only the corresponding area is unlocked and available for clicking. Additionally, there are meeples representing players on the map, transitioning to the next hole through pre-set animations after completing each hole.
+
+![GamePage showing the interactive map](/assets/instruction2.jpg)
 
 **4. Randomized Quiz**
 
@@ -24,13 +28,19 @@ The absolute key feature of the project is a quiz based on the principle of gami
 
 When a player clicks on an answer, this answer is immediately marked as correct or wrong through visual styling (via CSS). If the answer of player was incorrect, the correct one is also marked to fulfill the educational aspect. Based on the answers, the player's score is instantly reflected in the scorecard, which can be also influenced by wind gusts, symbolized by a weather icon (as the random feature of the game).
 
+![Randomized Quiz showing CSS styles of wrong and correct answers](/assets/readme-quiz-questions.jpg)
+
 **5. Performance Evaluation**
 
 After completing the entire course (9 holes), users receive an evaluation of their performance, score and few words to their performance in single-palyer mode, or annoncement of the winenr in two-players mode.
 
+![Performance Evaluation for 2-players mode](/assets/instruction5.jpg)
+
 **6. Responsivity**
 
 The game is designed for both mobile and desktop devices. The design reflects the capabilities of the given devices, so it was necessary to modify the map and avatar appereance for different device sizes.
+
+![Responsivity for mobile phone and tablet size devices](/assets/readme-map-responsivity.jpg)
 
 ## Technologies
 
