@@ -38,28 +38,28 @@ Prototype:
 
 - [Figma](https://www.figma.com)
 
-  Development:
+Development:
 
-  - [React](https://react.dev/)
-  - JavaScript
-  - HTML
-  - CSS
-  - [BEM](https://getbem.com/) methodology
-  - [npm](https://www.npmjs.com/)
+- [React](https://react.dev/)
+- JavaScript
+- HTML
+- CSS
+- [BEM](https://getbem.com/) methodology
+- [npm](https://www.npmjs.com/)
 
-  Graphics and assets:
+Graphics and assets:
 
-  - [DALL-E](https://openai.com/index/dall-e-3/)
-  - [Gimp](https://www.gimp.org/)
+- [DALL-E](https://openai.com/index/dall-e-3/)
+- [Gimp](https://www.gimp.org/)
 
-  Versioning:
+Versioning:
 
-  - [Git](https://git-scm.com/)
-  - [GitHub](https://github.com)
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com)
 
-  Deployment:
+Deployment:
 
-  - [Netlify](https://www.netlify.com/)
+- [Netlify](https://www.netlify.com/)
 
 ## Installation
 
