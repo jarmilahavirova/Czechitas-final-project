@@ -119,6 +119,12 @@ export const AboutPage = () => {
             (prototyp), Dall-E a Gimp (zdroj obrázků a grafické úpravy), Git +
             GitHub, Netlify (verzování projektu a deployment).
           </p>
+          <a
+            href="https://github.com/jarmilahavirova/Czechitas-final-project"
+            target="_blank"
+          >
+            <h4>Repozitář na GitHubu</h4>
+          </a>
         </section>
 
         <IconButton type="link" link="/" selected icon="./icon-disgolf.png" />
