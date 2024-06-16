@@ -11,7 +11,7 @@ export const IconButton = ({ text, icon, selected, onClick, type, link }) => {
           }
           to={link}
           style={{ backgroundImage: `url(${icon})` }}
-          target={link === "/about" ? "_blank" : "_self"}
+          target={link === "/about" ? "about" : "_self"}
         ></Link>
       ) : (
         <button
