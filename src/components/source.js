@@ -524,19 +524,19 @@ export const questions = [
 export const results = [
   {
     id: 1,
-    text: "Výborné skóre, tvá práce v off-season se vyplatila a již nyní při tréninku je vidět, že jsi nezahálel/a. Můžeš si dát ještě jedno tréninkové kolečko nebo vyrazit na turnaj.",
+    text: "Výborné skóre, dnes šlo vše hladce, počasí přálo a tvá práce v off-season se vyplatila - již nyní při tréninku je vidět, že jsi nezahálel/a. Můžeš si dát ještě jedno tréninkové kolečko nebo vyrazit s kamarádem na turnaj.",
   },
   {
     id: 2,
-    text: "Některé jamky (témata) možná nesedly, možná občas trochu zafoukalo, ale jinak pěkné skóre. Určitě si ale vychytal/a poslední mouchy a na turnaji už to půjde samo.",
+    text: "Některé jamky (témata) možná nesedly, možná nepřálo počasí a občas trochu zafoukalo, ale jinak pěkné skóre. Určitě si ale vychytal/a poslední mouchy a na turnaji už to půjde samo.",
   },
   {
     id: 3,
-    text: "Určitě jsi pocítil/a, že je v některých oblastech potřeba ještě trochu tréninku. Neboj se oslovit zkušenější hráče na hřišti nebo místní klub, určitě ti rádi pomohou.",
+    text: "Buď byl dnes extrémní vichr nebo jsi pocítil/a, že je v některých oblastech potřeba ještě trochu tréninku. Pokud jde o druhou variantu, neboj se oslovit zkušenější hráče na hřišti nebo místní klub, určitě ti rádi pomohou.",
   },
   {
     id: 4,
-    text: "Žádný učený z nebe nespadl. Věříme, že jsi doposud trénoval jiné stránky hry a že na pravidlech ještě zapracuješ. Pokud nevíš, kudy kam, neboj se oslovit zkušenější hráče nebo místní klub.",
+    text: "Žádný učený z nebe nespadl. Věříme, že jsi doposud trénoval/a jiné stránky hry a že na pravidlech ještě zapracuješ. Pokud nevíš kudy kam, neboj se oslovit zkušenější hráče nebo místní klub.",
   },
 ];
 

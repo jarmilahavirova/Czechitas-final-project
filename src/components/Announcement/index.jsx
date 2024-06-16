@@ -14,11 +14,11 @@ export const Announcement = ({
   const [resultId, setResultId] = useState(null);
 
   useEffect(() => {
-    if (scorePlayer0 > 0 && scorePlayer0 < 20) {
+    if (scorePlayer0 > 0 && scorePlayer0 < 21) {
       setResultId(0);
-    } else if (scorePlayer0 >= 20 && scorePlayer0 < 23) {
+    } else if (scorePlayer0 >= 21 && scorePlayer0 < 24) {
       setResultId(1);
-    } else if (scorePlayer0 >= 23 && scorePlayer0 < 27) {
+    } else if (scorePlayer0 >= 24 && scorePlayer0 < 27) {
       setResultId(2);
     } else if (scorePlayer0 >= 27) {
       setResultId(3);
