@@ -54,7 +54,7 @@ export const Quiz = ({
 
     if (answer.correct === true) {
       setQuestionClassName("question__answer question__answer--corect");
-      if (weatherProbability < 0.75) {
+      if (weatherProbability < 1) {
         updateScore(2);
       } else {
         updateScore(3);
@@ -63,7 +63,7 @@ export const Quiz = ({
 
     if (answer.correct === false) {
       setQuestionClassName("question__answer question__answer--wrong");
-      if (weatherProbability < 0.75) {
+      if (weatherProbability < 1) {
         updateScore(3);
       } else {
         updateScore(4);
@@ -129,10 +129,8 @@ export const Quiz = ({
           alt={`Teesign jamky č.${currentHole + 1}`}
         />
         <img
-          src={
-            weatherProbability < 0.75 ? "./icon-sun.png" : "./icon-windy.png"
-          }
-          alt={weatherProbability < 0.75 ? "Svítí sluníčko" : "Pozor, fouká!"}
+          src={weatherProbability < 1 ? "./icon-sun.png" : "./icon-windy.png"}
+          alt={weatherProbability < 1 ? "Svítí sluníčko" : "Pozor, fouká!"}
           className="question__weather"
         />
       </div>
@@ -151,7 +149,11 @@ export const Quiz = ({
                   index === clickedQuestion
                     ? questionClassName
                     : "question__answer"
-                } ${questionFinished && "question__answer--disabled"} ${questionFinished && answer.correct===true && "question__answer--expected"}
+                } ${questionFinished && "question__answer--disabled"} ${
+                  questionFinished &&
+                  answer.correct === true &&
+                  "question__answer--expected"
+                }
               `}
                 key={index}
                 onClick={() => handleClickedAnswer(answer, index)}
